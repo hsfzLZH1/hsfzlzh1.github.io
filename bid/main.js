@@ -4,6 +4,7 @@ const config = {
 };
 
 let db = null;
+let qry="";
 
 // 1. Initialize the database
 async function initDatabase() {
@@ -24,7 +25,7 @@ async function initDatabase() {
 
 // 4. Function to query the database
 function executeQuery() {
-  const userInput = document.getElementById('searchBar').value;
+  // const userInput = document.getElementById('searchBar').value;
   
   if (!db) {
     alert("Database still loading...");
@@ -33,7 +34,7 @@ function executeQuery() {
 
   // Use Prepared Statements to prevent errors
   const stmt = db.prepare("SELECT * FROM bids WHERE config = $name");
-  stmt.bind({$name: `${userInput}`});
+  stmt.bind({$name: `${qry}`});
   console.log(stmt)
 
   const results = [];
@@ -46,8 +47,36 @@ function executeQuery() {
 }
 
 function displayResults(data) {
+  console.log(data);
+  displayStr="Not found.";
   const output = document.getElementById('output');
-  output.innerHTML = JSON.stringify(data, null, 2);
+  if(data.length==1)displayStr=data[0].comment;
+  output.innerHTML = displayStr;//JSON.stringify(data, null, 2);
+}
+
+function displayQuery()
+{
+  const query=document.getElementById('query');
+  query.innerHTML=qry;
+}
+
+function AppendQuery(str)
+{
+  qry=qry+str;
+  displayQuery();
+}
+
+function ClearQuery(){qry="";displayQuery();}
+
+function BackQuery()
+{
+  while(qry.length!=0)
+  {
+    if(qry.at(-1)=='_'){qry=qry.slice(0,-1);break;}
+    else qry=qry.slice(0,-1);
+  }
+  displayQuery();
 }
 
 initDatabase();
+
