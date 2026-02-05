@@ -419,7 +419,7 @@ body table {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  font-size: 12px;
+  font-size: 14px;
   overflow: auto;
   display: block;
 }
@@ -428,7 +428,7 @@ body th {
   border-bottom: 1px dashed #666;
   color: #383838;
   font-weight: bold;
-  font-size: 13px;
+  font-size: 15px;
 }
 body td {
   padding: 0 8px;
@@ -481,8 +481,8 @@ body {
   background-color: #fff;
   color: #383838;
   font-weight: 400;
-  font-size: 14px;
-  font-family: "Menlo", "Meslo LG", monospace;
+  font-size: 16px;
+  font-family: "Consolas", "Meslo LG", monospace;
   line-height: 1.725;
   text-rendering: geometricPrecision;
   -moz-osx-font-smoothing: grayscale;
@@ -601,8 +601,8 @@ body {
   letter-spacing: 0.01em;
   font-weight: 700;
   font-style: normal;
-  font-size: 1.5rem;
-  line-height: 2rem;
+  font-size: 2rem;
+  line-height: 2.25rem;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
@@ -628,7 +628,7 @@ body {
   letter-spacing: 0.01em;
   font-weight: 200;
   font-style: normal;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 #header #nav ul {
   margin: 0;
@@ -1092,8 +1092,8 @@ article header .posttitle {
   margin-top: 0;
   margin-bottom: 0;
   text-transform: none;
-  font-size: 1.5em;
-  line-height: 1.25;
+  font-size: 2rem;
+  line-height: 1.5;
 }
 article header .meta {
   margin-top: 0;
@@ -1101,7 +1101,7 @@ article header .meta {
 }
 article header .meta * {
   color: #8c8c8c;
-  font-size: 0.85rem;
+  font-size: 1rem;
 }
 article header .author {
   text-transform: uppercase;
@@ -1118,7 +1118,7 @@ article .content h2:before {
   color: #2bbc8a;
   content: "#";
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 article .content img,
 article .content video {
@@ -1202,8 +1202,8 @@ article .content .caption {
 }
 .posttitle {
   text-transform: none;
-  font-size: 1.5em;
-  line-height: 1.25;
+  font-size: 2rem;
+  line-height: 1.5;
 }
 .article-tag .tag-link {
   background-image: linear-gradient(transparent, transparent 10px, #d480aa 10px, #d480aa);
@@ -1415,8 +1415,8 @@ article .content .caption {
   color: #fff;
   font-display: swap;
   font-weight: 400;
-  font-size: 11.200000000000001px;
-  font-family: "Menlo", "Meslo LG", monospace;
+  font-size: 12.8px;
+  font-family: "Consolas", "Meslo LG", monospace;
   line-height: 1.725;
   text-rendering: geometricPrecision;
   text-align: center;
@@ -1582,7 +1582,7 @@ pre {
   border: 1px dotted #666;
   border-radius: 4px;
   font-size: 13px;
-  font-family: "Menlo", "Meslo LG", monospace;
+  font-family: "Consolas", "Meslo LG", monospace;
   line-height: 22px;
   -webkit-border-radius: 4px;
 }
@@ -1603,7 +1603,7 @@ code {
   padding: 10px 15px;
   border-radius: 4px;
   background: #fafafa;
-  font-family: "Menlo", "Meslo LG", monospace;
+  font-family: "Consolas", "Meslo LG", monospace;
   -webkit-border-radius: 4px;
 }
 .highlight figcaption {
