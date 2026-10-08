@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="How to solve infinite graph games while charging for the bits that describe large rewards, small probabilities, and recurring priorities.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Quasipolynomial algorithms for mean-payoff, stochastic and parity games">
+<meta property="og:url" content="https://hsfzlzh1.github.io/math-digest/family-104/index.html">
+<meta property="og:site_name" content="hsfzLZH1&#39;s Homepage">
+<meta property="og:description" content="How to solve infinite graph games while charging for the bits that describe large rewards, small probabilities, and recurring priorities.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-10-08T04:12:00.000Z">
+<meta property="article:modified_time" content="2026-10-08T04:12:00.000Z">
+<meta property="article:author" content="hsfzLZH1">
+<meta property="article:tag" content="Algorithms">
+<meta property="article:tag" content="Game theory">
+<meta property="article:tag" content="Theoretical computer science">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Quasipolynomial algorithms for mean-payoff, stochastic and parity games</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 8.1.1"><link rel="stylesheet" href="/css/math-digest.css"><link rel="stylesheet" href="/lib/katex/katex.min.css">
+</head>
+
+<body class="max-width mx-auto px3 ltr math-digest-page">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/papers/">Papers</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/hsfzLZH1">Projects</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/math-digest/family-105/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/math-digest/family-103/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://hsfzlzh1.github.io/math-digest/family-104/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hsfzlzh1.github.io/math-digest/family-104/&text=Quasipolynomial algorithms for mean-payoff, stochastic and parity games"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://hsfzlzh1.github.io/math-digest/family-104/&title=Quasipolynomial algorithms for mean-payoff, stochastic and parity games"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://hsfzlzh1.github.io/math-digest/family-104/&is_video=false&description=Quasipolynomial algorithms for mean-payoff, stochastic and parity games"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Quasipolynomial algorithms for mean-payoff, stochastic and parity games&body=Check out this article: https://hsfzlzh1.github.io/math-digest/family-104/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://hsfzlzh1.github.io/math-digest/family-104/&title=Quasipolynomial algorithms for mean-payoff, stochastic and parity games"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-104/&title=Quasipolynomial algorithms for mean-payoff, stochastic and parity games"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-104/&title=Quasipolynomial algorithms for mean-payoff, stochastic and parity games"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-104/&title=Quasipolynomial algorithms for mean-payoff, stochastic and parity games"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://hsfzlzh1.github.io/math-digest/family-104/&name=Quasipolynomial algorithms for mean-payoff, stochastic and parity games&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://hsfzlzh1.github.io/math-digest/family-104/&t=Quasipolynomial algorithms for mean-payoff, stochastic and parity games"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-The-question"><span class="toc-number">1.</span> <span class="toc-text">1. The question</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Background-and-essential-definitions"><span class="toc-number">2.</span> <span class="toc-text">2. Background and essential definitions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Infinite-plays-on-a-finite-graph"><span class="toc-number">2.1.</span> <span class="toc-text">Infinite plays on a finite graph</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chance-and-parity-are-different-additions"><span class="toc-number">2.2.</span> <span class="toc-text">Chance and parity are different additions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-size-of-a-number-is-not-its-value"><span class="toc-number">2.3.</span> <span class="toc-text">The size of a number is not its value</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Development-history-and-previous-partial-results"><span class="toc-number">3.</span> <span class="toc-text">3. Development history and previous partial results</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-What-the-new-manuscripts-claim"><span class="toc-number">4.</span> <span class="toc-text">4. What the new manuscripts claim</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Why-the-advance-matters"><span class="toc-number">5.</span> <span class="toc-text">5. Why the advance matters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-The-main-idea"><span class="toc-number">6.</span> <span class="toc-text">6. The main idea</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Change-potentials-without-changing-long-run-rewards"><span class="toc-number">6.1.</span> <span class="toc-text">Change potentials without changing long-run rewards</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Discount-the-stochastic-game-but-avoid-slow-iteration"><span class="toc-number">6.2.</span> <span class="toc-text">Discount the stochastic game, but avoid slow iteration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Combine-long-run-reward-with-repeated-obligations"><span class="toc-number">6.3.</span> <span class="toc-text">Combine long-run reward with repeated obligations</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Scope-limitations-and-open-questions"><span class="toc-number">7.</span> <span class="toc-text">7. Scope, limitations, and open questions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Sources-and-further-reading"><span class="toc-number">8.</span> <span class="toc-text">8. Sources and further reading</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Quasipolynomial algorithms for mean-payoff, stochastic and parity games
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">hsfzLZH1</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-10-08T04:12:00.000Z" class="dt-published" itemprop="datePublished">2026-10-08</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Math-Digest/">Math Digest</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Algorithms/" rel="tag">Algorithms</a>, <a class="p-category" href="/tags/Game-theory/" rel="tag">Game theory</a>, <a class="p-category" href="/tags/Theoretical-computer-science/" rel="tag">Theoretical computer science</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <div class="digest-meta"><a href="/math-digest/">← All digests</a><p>Family 104 · Theoretical computer science<br>Importance <strong>4/5</strong> · Provisional editorial rating<br>Sources consulted 2026-10-08</p></div>
+
+<p>A game can have finitely many positions but continue forever. One player wants a good average reward; the other tries to keep that average low. Family 104 claims algorithms for solving such games in quasipolynomial time, measured in the entire binary input length. This last qualification is central: a reward of enormous magnitude can have a short description, so an algorithm must avoid spending time proportional to the reward itself.</p>
+<h2 id="1-The-question"><a href="#1-The-question" class="headerlink" title="1. The question"></a>1. The question</h2><p>Imagine a controller operating a system indefinitely. Some transitions earn resources, while others consume them. The controller chooses certain moves; an adversarial environment chooses the rest. From which starting states can the controller guarantee a nonnegative long-run average?</p>
+<p>Two natural extensions complicate the question. Some transitions may be random, so performance is measured in expectation. Alternatively, the controller may need both a satisfactory average and a recurring logical obligation, such as returning to a designated kind of state infinitely often.</p>
+<p>The family studies ordinary mean-payoff games and these two separate extensions. Its four manuscripts claim a deterministic quasipolynomial bound for each relevant winning-set problem, along with stronger value and strategy outputs for the ordinary model.</p>
+<h2 id="2-Background-and-essential-definitions"><a href="#2-Background-and-essential-definitions" class="headerlink" title="2. Background and essential definitions"></a>2. Background and essential definitions</h2><h3 id="Infinite-plays-on-a-finite-graph"><a href="#Infinite-plays-on-a-finite-graph" class="headerlink" title="Infinite plays on a finite graph"></a>Infinite plays on a finite graph</h3><p>An <em>arena</em> is a finite directed graph whose vertices are assigned to two players, Max and Min. Each vertex has an outgoing edge. The owner of the current vertex chooses the next edge, producing an infinite sequence <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>e</mi><mn>0</mn></msub><mo separator="true">,</mo><msub><mi>e</mi><mn>1</mn></msub><mo separator="true">,</mo><mo>…</mo></mrow><annotation encoding="application/x-tex">e_0,e_1,\ldots</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span></span></span></span>. Each edge has an integer reward <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mo stretchy="false">(</mo><mi>e</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">w(e)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mopen">(</span><span class="mord mathnormal">e</span><span class="mclose">)</span></span></span></span>.</p>
+<p>The payoff is the lower limiting average</p>
+<div class="digest-equation" tabindex="0" role="group" aria-label="Mathematical equation"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="normal">MP</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>π</mi><mo stretchy="false">)</mo><mo>=</mo><munder><mrow><mi mathvariant="normal">lim inf</mi><mo>⁡</mo></mrow><mrow><mi>T</mi><mo>→</mo><mi mathvariant="normal">∞</mi></mrow></munder><mfrac><mn>1</mn><mi>T</mi></mfrac><munderover><mo>∑</mo><mrow><mi>t</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>T</mi><mo>−</mo><mn>1</mn></mrow></munderover><mi>w</mi><mo stretchy="false">(</mo><msub><mi>e</mi><mi>t</mi></msub><mo stretchy="false">)</mo><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\operatorname{MP}(\pi)
+=\liminf_{T\to\infty}\frac1T\sum_{t=0}^{T-1}w(e_t).</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mord mathrm">MP</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:3.0954em;vertical-align:-1.2671em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-2.3557em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span><span class="mrel mtight">→</span><span class="mord mtight">∞</span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop"><span class="mord mathrm">lim</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathrm" style="margin-right:0.07778em;">inf</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7443em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.8283em;"><span style="top:-1.8829em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mrel mtight">=</span><span class="mord mtight">0</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2671em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></div>
+<p>The notation <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">lim inf</mi><mo>⁡</mo></mrow><annotation encoding="application/x-tex">\liminf</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mop"><span class="mord mathrm">lim</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathrm" style="margin-right:0.07778em;">inf</span></span></span></span></span> handles averages that oscillate rather than converge: it records their eventual lower level. Max wants this payoff large, and Min wants it small. Repeating a two-edge cycle with rewards <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">+3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">+</span><span class="mord">3</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span> gives mean payoff <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>, regardless of any finite initial route into the cycle.</p>
+<p>A strategy tells a player how to move after every possible history. A <em>positional</em> strategy remembers only the current vertex. In ordinary finite mean-payoff games, optimal positional strategies exist for both players, even though general strategies are allowed. The value at a vertex is the payoff Max can guarantee against Min’s best opposition.</p>
+<h3 id="Chance-and-parity-are-different-additions"><a href="#Chance-and-parity-are-different-additions" class="headerlink" title="Chance and parity are different additions"></a>Chance and parity are different additions</h3><p>In a stochastic game, some vertices belong to Chance. At those vertices, the next edge is selected according to an explicitly given rational probability distribution. The claimed stochastic result uses</p>
+<div class="digest-equation" tabindex="0" role="group" aria-label="Mathematical equation"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="normal">val</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo><mo>=</mo><munder><mrow><mi>sup</mi><mo>⁡</mo></mrow><mi>σ</mi></munder><munder><mrow><mi>inf</mi><mo>⁡</mo></mrow><mi>τ</mi></munder><msub><mi mathvariant="double-struck">E</mi><mrow><mi>v</mi><mo separator="true">,</mo><mi>σ</mi><mo separator="true">,</mo><mi>τ</mi></mrow></msub><mo stretchy="false">[</mo><mi mathvariant="normal">MP</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>π</mi><mo stretchy="false">)</mo><mo stretchy="false">]</mo><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">\operatorname{val}(v)
+=\sup_\sigma\inf_\tau
+\mathbb E_{v,\sigma,\tau}[\operatorname{MP}(\pi)],</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mord mathrm">val</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.6444em;vertical-align:-0.8944em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.4306em;"><span style="top:-2.2056em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">σ</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop">sup</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8944em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-2.4em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.1132em;">τ</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop">in<span style="margin-right:0.07778em;">f</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathbb">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">v</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.03588em;">σ</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.1132em;">τ</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mopen">[</span><span class="mop"><span class="mord mathrm">MP</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="mclose">)]</span><span class="mpunct">,</span></span></span></span></span></div>
+<p>where <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi></mrow><annotation encoding="application/x-tex">\sigma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi></mrow><annotation encoding="application/x-tex">\tau</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.1132em;">τ</span></span></span></span> are the players’ strategies. The expectation is taken after the pathwise lower limit. A nonnegative expected payoff need not mean a nonnegative payoff on every play.</p>
+<p>In the parity extension, each vertex instead carries a nonnegative integer called its <em>priority</em>. Under the paper’s convention, the least priority appearing infinitely often must be even. If priorities 2 and 5 recur forever, the condition succeeds; if 3 and 4 recur forever, it fails. A priority visited only finitely often does not affect the outcome.</p>
+<p>Max must satisfy both parity and nonnegative mean payoff on every play allowed by the opponent. This combined objective is more demanding than either condition separately.</p>
+<h3 id="The-size-of-a-number-is-not-its-value"><a href="#The-size-of-a-number-is-not-its-value" class="headerlink" title="The size of a number is not its value"></a>The size of a number is not its value</h3><p>An integer of magnitude <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>b</mi></msup></mrow><annotation encoding="application/x-tex">2^b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8491em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">b</span></span></span></span></span></span></span></span></span></span></span> needs only about <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span> binary digits. A runtime proportional to that integer is exponential in its encoding length. Algorithms polynomial in numerical magnitudes, such as the largest reward <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi></mrow><annotation encoding="application/x-tex">W</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span>, are called <em>pseudopolynomial</em> when this dependence prevents a polynomial bound in the input length.</p>
+<p>Write <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span></span></span></span> for the complete binary input length, including the graph, ownership, rewards, probabilities, and priorities that the model uses. The claimed common bound is</p>
+<div class="digest-equation" tabindex="0" role="group" aria-label="Mathematical equation"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msup><mn>2</mn><mrow><mi>O</mi><mo stretchy="false">(</mo><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>L</mi><mo>+</mo><mn>2</mn><mo stretchy="false">)</mo><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo stretchy="false">)</mo></mrow></msup><mo>=</mo><mo stretchy="false">(</mo><mi>L</mi><mo>+</mo><mn>2</mn><msup><mo stretchy="false">)</mo><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>L</mi><mo>+</mo><mn>2</mn><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow></msup><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">2^{O((\log(L+2))^2)}
+=(L+2)^{O(\log(L+2))}.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0369em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.0369em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">O</span><span class="mopen mtight">((</span><span class="mop mtight"><span class="mtight">l</span><span class="mtight">o</span><span class="mtight" style="margin-right:0.01389em;">g</span></span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">L</span><span class="mbin mtight">+</span><span class="mord mtight">2</span><span class="mclose mtight">)</span><span class="mclose mtight"><span class="mclose mtight">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913em;"><span style="top:-2.931em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">L</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.188em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.938em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">O</span><span class="mopen mtight">(</span><span class="mop mtight"><span class="mtight">l</span><span class="mtight">o</span><span class="mtight" style="margin-right:0.01389em;">g</span></span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">L</span><span class="mbin mtight">+</span><span class="mord mtight">2</span><span class="mclose mtight">))</span></span></span></span></span></span></span></span></span><span class="mord">.</span></span></span></span></span></div>
+<p>This is quasipolynomial: larger than a fixed-degree polynomial in general, but much smaller asymptotically than <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mrow><mi>c</mi><mi>L</mi></mrow></msup></mrow><annotation encoding="application/x-tex">2^{cL}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8413em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight">L</span></span></span></span></span></span></span></span></span></span></span></span> for a fixed positive <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span>. A <em>bit-operation</em> bound counts the cost of manipulating numerical data rather than treating arithmetic on arbitrarily large integers as free.</p>
+<h2 id="3-Development-history-and-previous-partial-results"><a href="#3-Development-history-and-previous-partial-results" class="headerlink" title="3. Development history and previous partial results"></a>3. Development history and previous partial results</h2><p><a target="_blank" rel="noopener" href="https://doi.org/10.1073/pnas.39.10.1095">Shapley’s 1953 work</a> introduced stochastic games, and subsequent research developed long-run average objectives. <a target="_blank" rel="noopener" href="https://doi.org/10.1007/BF01768705">Ehrenfeucht and Mycielski’s 1979 theorem</a> established the positional structure of ordinary mean-payoff games. Finite strategy descriptions became available even though plays are infinite.</p>
+<p><a target="_blank" rel="noopener" href="https://cris.tau.ac.il/en/publications/the-complexity-of-mean-payoff-games-on-graphs/">Zwick and Paterson in 1996</a> developed complexity connections and pseudopolynomial algorithms for mean-payoff games. Later energy-game methods used vertex potentials and progress measures. An energy objective asks whether an initial credit can keep every finite accumulated total nonnegative; this is closely related to, but distinct from, a nonnegative limiting average. The numerical reward dependence remained a central obstacle to bounds in binary input length.</p>
+<p>Parity games saw a major breakthrough in 2017 when <a target="_blank" rel="noopener" href="https://www.cs.auckland.ac.nz/~cristian/crispapers/paritygame-stoc.pdf">Calude, Jain, Khoussainov, Li, and Stephan</a> obtained a quasipolynomial algorithm. Parity games reduce to mean-payoff games, but a reduction in that direction does not turn a parity solver into a solver for arbitrary mean-payoff games.</p>
+<p>For the combined objective, <a target="_blank" rel="noopener" href="https://doi.org/10.1109/LICS.2005.26">Chatterjee, Henzinger, and Jurdziński</a> introduced mean-payoff parity games in 2005. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1803.04756">Daviaud, Jurdziński, and Lazić in 2018</a> replaced an exponential priority dependence by a quasipolynomial one. Their bound still retained a numerical weight factor, hence the description “pseudo-quasipolynomial.”</p>
+<p>Stochastic games formed another longstanding line. <a target="_blank" rel="noopener" href="https://doi.org/10.1016/0890-5401(92)90048-K">Condon’s 1992 work</a> placed the simple stochastic game threshold problem in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="sans-serif">N</mi><mi mathvariant="sans-serif">P</mi></mrow><mo>∩</mo><mrow><mi mathvariant="sans-serif">c</mi><mi mathvariant="sans-serif">o</mi><mi mathvariant="sans-serif">N</mi><mi mathvariant="sans-serif">P</mi></mrow></mrow><annotation encoding="application/x-tex">\mathsf{NP}\cap\mathsf{coNP}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord"><span class="mord mathsf">NP</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord"><span class="mord mathsf">coNP</span></span></span></span></span>, meaning both yes- and no-instances have polynomially checkable certificates. Subexponential algorithms and results for restricted arenas followed, but these did not supply the general deterministic quasipolynomial binary-length bound claimed here.</p>
+<h2 id="4-What-the-new-manuscripts-claim"><a href="#4-What-the-new-manuscripts-claim" class="headerlink" title="4. What the new manuscripts claim"></a>4. What the new manuscripts claim</h2><p>All bounds below count the full explicit binary input. Large signed rewards are allowed; the stochastic paper also allows arbitrary rational chance probabilities, and the parity paper allows unrestricted binary priorities.</p>
+<table>
+<thead>
+<tr>
+<th>Manuscript</th>
+<th>Model</th>
+<th>Claimed output</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Deterministic-quasipolynomial-time-mean-payoff-games-September-25-2026/paper.pdf">Deterministic algorithm</a></td>
+<td>Ordinary mean-payoff</td>
+<td>All nonnegative-value starts; also exact rational values and optimal positional strategies</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Randomized-quasipolynomial-time-mean-payoff-games-September-25-2026/paper.pdf">Randomized algorithm</a></td>
+<td>Ordinary mean-payoff</td>
+<td>The full winning set with success probability at least <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>7</mn><mi mathvariant="normal">/</mi><mn>8</mn></mrow><annotation encoding="application/x-tex">7/8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">7/8</span></span></span></span>, with a checkable-output variant</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Turn-Based-Stochastic-Mean-Payoff-Games-in-Deterministic-Quasipolynomial-Time-October-5-2026/stochastic-mean-payoff-games.pdf">Stochastic algorithm</a></td>
+<td>Mean payoff with Chance vertices</td>
+<td>All starts with nonnegative expectation-of-liminf value, including value zero</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Mean-payoff-parity-games-in-quasipolynomial-time-October-5-2026/mean-payoff-parity.pdf">Parity algorithm</a></td>
+<td>Mean payoff conjoined with parity</td>
+<td>All starts from which Max can force both conditions</td>
+</tr>
+</tbody></table>
+<p>The deterministic, stochastic, and parity algorithms claim the quasipolynomial bound displayed above. The randomized algorithm claims that bound on every random tape, including unsuccessful runs. Its probability guarantee covers the whole returned set, not merely one vertex at a time.</p>
+<p>The randomized manuscript also states a polynomial-time procedure that checks the produced winning regions and positional strategies or reports failure. Repeating until this check succeeds gives an always-correct randomized algorithm with the same form of <em>expected</em> quasipolynomial bound. This certificate check is part of the paper’s algorithmic claim.</p>
+<p>The deterministic ordinary-game manuscript obtains exact values and globally optimal positional strategies through further winning-set queries. Those stronger outputs should not be silently assigned to the two extension papers, whose headline theorems compute threshold sets.</p>
+<h2 id="5-Why-the-advance-matters"><a href="#5-Why-the-advance-matters" class="headerlink" title="5. Why the advance matters"></a>5. Why the advance matters</h2><p>The gain is especially meaningful when rewards or probability denominators are large. A number such as <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>1000</mn></msup></mrow><annotation encoding="application/x-tex">2^{1000}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1000</span></span></span></span></span></span></span></span></span></span></span></span> has a manageable binary description; enumerating values up to it is not manageable. A bound in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span></span></span></span> explicitly addresses this mismatch.</p>
+<p>The stochastic claim also reaches simple stochastic reachability games. Make the target absorbing with reward <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span>, and give other transitions reward <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span>. A play that eventually reaches the target has limiting average <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span>; one that never reaches it has average <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span>. Therefore</p>
+<div class="digest-equation" tabindex="0" role="group" aria-label="Mathematical equation"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="double-struck">E</mi><mo stretchy="false">[</mo><mi mathvariant="normal">MP</mi><mo>⁡</mo><mo stretchy="false">]</mo><mo>=</mo><mn>2</mn><mi>Pr</mi><mo>⁡</mo><mo stretchy="false">[</mo><mtext>target is reached</mtext><mo stretchy="false">]</mo><mo>−</mo><mn>1.</mn></mrow><annotation encoding="application/x-tex">\mathbb E[\operatorname{MP}]
+=2\Pr[\text{target is reached}]-1.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathbb">E</span><span class="mopen">[</span><span class="mop"><span class="mord mathrm">MP</span></span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">Pr</span><span class="mopen">[</span><span class="mord text"><span class="mord">target is reached</span></span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1.</span></span></span></span></span></div>
+<p>Testing nonnegative value then answers whether the optimal worst-case reachability probability is at least one half. The <a target="_blank" rel="noopener" href="https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Turn-Based-Stochastic-Mean-Payoff-Games-in-Deterministic-Quasipolynomial-Time-October-5-2026/stochastic-mean-payoff-games.pdf">stochastic manuscript</a> explicitly gives this reduction.</p>
+<p><strong>Importance: 4&#x2F;5, provisional.</strong> A common quasipolynomial bound for these longstanding graph-game problems would be a major algorithmic advance, with consequences for models used in verification and control. A polynomial-time bound would be a further step beyond the claims here.</p>
+<h2 id="6-The-main-idea"><a href="#6-The-main-idea" class="headerlink" title="6. The main idea"></a>6. The main idea</h2><h3 id="Change-potentials-without-changing-long-run-rewards"><a href="#Change-potentials-without-changing-long-run-rewards" class="headerlink" title="Change potentials without changing long-run rewards"></a>Change potentials without changing long-run rewards</h3><p>Assign a number <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">h(v)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">h</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mclose">)</span></span></span></span>, called a potential, to each vertex. Replace an edge reward by</p>
+<div class="digest-equation" tabindex="0" role="group" aria-label="Mathematical equation"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>w</mi><mi>h</mi></msub><mo stretchy="false">(</mo><mi>u</mi><mo separator="true">,</mo><mi>v</mi><mo stretchy="false">)</mo><mo>=</mo><mi>w</mi><mo stretchy="false">(</mo><mi>u</mi><mo separator="true">,</mo><mi>v</mi><mo stretchy="false">)</mo><mo>+</mo><mi>h</mi><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo><mo>−</mo><mi>h</mi><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">w_h(u,v)=w(u,v)+h(v)-h(u).</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0269em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">h</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">u</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mopen">(</span><span class="mord mathnormal">u</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">h</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">h</span><span class="mopen">(</span><span class="mord mathnormal">u</span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></div>
+<p>Along a path, the potential terms telescope to the difference between the final and initial potentials. Since there are finitely many vertices, that difference divided by the path length tends to zero. Cycle sums and long-run averages are preserved.</p>
+<p>Potentials can therefore reorganize the local inequalities that reveal winning behavior. The ordinary-game algorithms work with integer vectors in finite boxes and compare them with suitable lower and upper bounds on these inequalities. A naive iteration might move through a box one numerical unit at a time, making it too slow when rewards are large.</p>
+<p>The deterministic paper instead recursively narrows boxes and assigns positive masses to coordinates. These masses track which potential comparisons must remain valid. Most recursive children increase a progress measure by a fixed factor; at most one child preserves it while reducing the box width. Only logarithmically many branching progress steps can occur along a path. Counting their possible positions yields the claimed quasipolynomial recursion size.</p>
+<p>This is an algorithm for extracting the necessary boundary information without enumerating every possible potential value.</p>
+<h3 id="Discount-the-stochastic-game-but-avoid-slow-iteration"><a href="#Discount-the-stochastic-game-but-avoid-slow-iteration" class="headerlink" title="Discount the stochastic game, but avoid slow iteration"></a>Discount the stochastic game, but avoid slow iteration</h3><p>For the stochastic extension, the paper first studies a discounted reward operator. With <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>u</mi><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0&lt;u&lt;1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6835em;vertical-align:-0.0391em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">u</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>, an edge to vertex <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span></span> contributes</p>
+<div class="digest-equation" tabindex="0" role="group" aria-label="Mathematical equation"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>u</mi><mtext> </mtext><mi>w</mi><mo stretchy="false">(</mo><mi>e</mi><mo stretchy="false">)</mo><mo>+</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>u</mi><mo stretchy="false">)</mo><msub><mi>t</mi><mi>j</mi></msub><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">u\,w(e)+(1-u)t_j,</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">u</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mopen">(</span><span class="mord mathnormal">e</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord mathnormal">u</span><span class="mclose">)</span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mpunct">,</span></span></span></span></span></div>
+<p>followed by a maximum, minimum, or probability-weighted average according to the vertex owner. Discounting gives a unique fixed point.</p>
+<p>The manuscript supplies a sufficiently small discount and a lower bound on the magnitude of nonzero game values. Together these turn a sufficiently accurate fixed-point estimate into an exact sign decision, including zero. But ordinary fixed-point iteration can require time proportional to the inverse discount. The proposed recursive comparison method uses monotonicity and the operator’s behavior under common shifts to avoid that numerical dependence.</p>
+<h3 id="Combine-long-run-reward-with-repeated-obligations"><a href="#Combine-long-run-reward-with-repeated-obligations" class="headerlink" title="Combine long-run reward with repeated obligations"></a>Combine long-run reward with repeated obligations</h3><p>For parity, the algorithm recursively studies regions where a player can stay and win, called <em>dominions</em>, using the ordinary mean-payoff solver as a subroutine. Controlling the number of recursive calls is only part of the challenge: switching among individually successful strategies can repeatedly incur startup costs.</p>
+<p>The paper handles this by controlling finite-prefix losses and scheduling increasingly long reward phases between parity visits. If reward phases have lengths <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo separator="true">,</mo><mo>…</mo></mrow><annotation encoding="application/x-tex">1,2,3,\ldots</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span></span></span></span>, then after <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> phases the useful time grows quadratically in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span>, while a bounded cost per intervening visit grows only linearly. Thus the average overhead can vanish while the required priority is still visited infinitely often. The actual construction also accounts for adversarial choices and restarts.</p>
+<h2 id="7-Scope-limitations-and-open-questions"><a href="#7-Scope-limitations-and-open-questions" class="headerlink" title="7. Scope, limitations, and open questions"></a>7. Scope, limitations, and open questions</h2><p>The two extensions are separate. The family does not, through these statements alone, provide the same theorem for games combining stochastic transitions, mean payoff, and parity simultaneously.</p>
+<p>The stochastic objective is nonnegative expected pathwise liminf payoff. It is not an almost-sure guarantee of nonnegative payoff, nor should expectation and the lower limit be interchanged without justification.</p>
+<p>The positional strategies in the ordinary-game result do not imply that a player enforcing the parity conjunction can always use finite memory. Earlier work shows that infinite memory can be needed for that combined objective. The increasing-phase idea explains why memory may matter.</p>
+<p>Finally, quasipolynomial time is still an asymptotic upper bound, not a practical benchmark or a polynomial-time solution. Whether stronger general bounds are possible, and how these methods compare with existing solvers on realistic arenas, remain separate questions.</p>
+<h2 id="8-Sources-and-further-reading"><a href="#8-Sources-and-further-reading" class="headerlink" title="8. Sources and further reading"></a>8. Sources and further reading</h2><p>The four manuscripts are credited to <strong>OpenAI</strong>:</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Deterministic-quasipolynomial-time-mean-payoff-games-September-25-2026/paper.pdf">Deterministic quasipolynomial-time mean-payoff games</a> — September 25, 2026; Theorem 1.1 and Section 7.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Randomized-quasipolynomial-time-mean-payoff-games-September-25-2026/paper.pdf">Randomized quasipolynomial-time mean-payoff games</a> — September 25, 2026; Theorem 1.1 and Corollary 8.1.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Turn-Based-Stochastic-Mean-Payoff-Games-in-Deterministic-Quasipolynomial-Time-October-5-2026/stochastic-mean-payoff-games.pdf">Turn-Based Stochastic Mean-Payoff Games in Deterministic Quasipolynomial Time</a> — October 5, 2026; Theorem 1.1.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Mean-payoff-parity-games-in-quasipolynomial-time-October-5-2026/mean-payoff-parity.pdf">Mean-payoff parity games in quasipolynomial time</a> — October 5, 2026; Theorem 1.1.</li>
+</ol>
+<p>Historical sources are linked in Section 3. Optional background: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Mean_payoff_game">mean-payoff games</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Parity_game">parity games</a>, and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Pseudo-polynomial_time">pseudopolynomial time</a>.</p>
+<p><strong>Source revision:</strong> <a target="_blank" rel="noopener" href="https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a"><code>adc7f1241b42</code></a>. <strong>Sources consulted:</strong> October 8, 2026. <strong>Citation data:</strong> <a href="/downloads/math-digest/family-104.bib">BibTeX</a>.</p>
+<p>See the series’ <a href="/math-digest/#AI-declaration">AI declaration</a> for authorship and review status. <a href="/math-digest/">Back to the family index</a>.</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/papers/">Papers</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="http://github.com/hsfzLZH1">Projects</a></li>
+        
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-The-question"><span class="toc-number">1.</span> <span class="toc-text">1. The question</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Background-and-essential-definitions"><span class="toc-number">2.</span> <span class="toc-text">2. Background and essential definitions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Infinite-plays-on-a-finite-graph"><span class="toc-number">2.1.</span> <span class="toc-text">Infinite plays on a finite graph</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chance-and-parity-are-different-additions"><span class="toc-number">2.2.</span> <span class="toc-text">Chance and parity are different additions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-size-of-a-number-is-not-its-value"><span class="toc-number">2.3.</span> <span class="toc-text">The size of a number is not its value</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Development-history-and-previous-partial-results"><span class="toc-number">3.</span> <span class="toc-text">3. Development history and previous partial results</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-What-the-new-manuscripts-claim"><span class="toc-number">4.</span> <span class="toc-text">4. What the new manuscripts claim</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Why-the-advance-matters"><span class="toc-number">5.</span> <span class="toc-text">5. Why the advance matters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-The-main-idea"><span class="toc-number">6.</span> <span class="toc-text">6. The main idea</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Change-potentials-without-changing-long-run-rewards"><span class="toc-number">6.1.</span> <span class="toc-text">Change potentials without changing long-run rewards</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Discount-the-stochastic-game-but-avoid-slow-iteration"><span class="toc-number">6.2.</span> <span class="toc-text">Discount the stochastic game, but avoid slow iteration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Combine-long-run-reward-with-repeated-obligations"><span class="toc-number">6.3.</span> <span class="toc-text">Combine long-run reward with repeated obligations</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Scope-limitations-and-open-questions"><span class="toc-number">7.</span> <span class="toc-text">7. Scope, limitations, and open questions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Sources-and-further-reading"><span class="toc-number">8.</span> <span class="toc-text">8. Sources and further reading</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://hsfzlzh1.github.io/math-digest/family-104/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hsfzlzh1.github.io/math-digest/family-104/&text=Quasipolynomial algorithms for mean-payoff, stochastic and parity games"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://hsfzlzh1.github.io/math-digest/family-104/&title=Quasipolynomial algorithms for mean-payoff, stochastic and parity games"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://hsfzlzh1.github.io/math-digest/family-104/&is_video=false&description=Quasipolynomial algorithms for mean-payoff, stochastic and parity games"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Quasipolynomial algorithms for mean-payoff, stochastic and parity games&body=Check out this article: https://hsfzlzh1.github.io/math-digest/family-104/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://hsfzlzh1.github.io/math-digest/family-104/&title=Quasipolynomial algorithms for mean-payoff, stochastic and parity games"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-104/&title=Quasipolynomial algorithms for mean-payoff, stochastic and parity games"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-104/&title=Quasipolynomial algorithms for mean-payoff, stochastic and parity games"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-104/&title=Quasipolynomial algorithms for mean-payoff, stochastic and parity games"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://hsfzlzh1.github.io/math-digest/family-104/&name=Quasipolynomial algorithms for mean-payoff, stochastic and parity games&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://hsfzlzh1.github.io/math-digest/family-104/&t=Quasipolynomial algorithms for mean-payoff, stochastic and parity games"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2026
+    hsfzLZH1
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/papers/">Papers</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/hsfzLZH1">Projects</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?22c8630d664adbd9658b25d22a3fb1b5";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
