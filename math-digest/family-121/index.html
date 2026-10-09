@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="The manuscript claims a one-plus-epsilon estimate of unit-cost edit distance in almost-linear expected time for each fixed rational accuracy.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Almost-linear expected-time approximation of edit distance">
+<meta property="og:url" content="https://hsfzlzh1.github.io/math-digest/family-121/index.html">
+<meta property="og:site_name" content="hsfzLZH1&#39;s Homepage">
+<meta property="og:description" content="The manuscript claims a one-plus-epsilon estimate of unit-cost edit distance in almost-linear expected time for each fixed rational accuracy.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-10-09T04:00:00.000Z">
+<meta property="article:modified_time" content="2026-10-09T04:00:00.000Z">
+<meta property="article:author" content="hsfzLZH1">
+<meta property="article:tag" content="Theoretical computer science">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Almost-linear expected-time approximation of edit distance</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 8.1.1"><link rel="stylesheet" href="/css/math-digest.css"><link rel="stylesheet" href="/lib/katex/katex.min.css">
+</head>
+
+<body class="max-width mx-auto px3 ltr math-digest-page">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/papers/">Papers</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/hsfzLZH1">Projects</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/math-digest/family-120/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/math-digest/family-122/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://hsfzlzh1.github.io/math-digest/family-121/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hsfzlzh1.github.io/math-digest/family-121/&text=Almost-linear expected-time approximation of edit distance"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://hsfzlzh1.github.io/math-digest/family-121/&title=Almost-linear expected-time approximation of edit distance"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://hsfzlzh1.github.io/math-digest/family-121/&is_video=false&description=Almost-linear expected-time approximation of edit distance"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Almost-linear expected-time approximation of edit distance&body=Check out this article: https://hsfzlzh1.github.io/math-digest/family-121/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://hsfzlzh1.github.io/math-digest/family-121/&title=Almost-linear expected-time approximation of edit distance"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-121/&title=Almost-linear expected-time approximation of edit distance"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-121/&title=Almost-linear expected-time approximation of edit distance"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-121/&title=Almost-linear expected-time approximation of edit distance"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://hsfzlzh1.github.io/math-digest/family-121/&name=Almost-linear expected-time approximation of edit distance&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://hsfzlzh1.github.io/math-digest/family-121/&t=Almost-linear expected-time approximation of edit distance"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-The-question"><span class="toc-number">1.</span> <span class="toc-text">1. The question</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Background-and-essential-definitions"><span class="toc-number">2.</span> <span class="toc-text">2. Background and essential definitions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Edit-operations-and-alignment-paths"><span class="toc-number">2.1.</span> <span class="toc-text">Edit operations and alignment paths</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Approximation-and-zero-distance"><span class="toc-number">2.2.</span> <span class="toc-text">Approximation and zero distance</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fixed-accuracy-and-expected-complexity"><span class="toc-number">2.3.</span> <span class="toc-text">Fixed accuracy and expected complexity</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Development-history-and-previous-partial-results"><span class="toc-number">3.</span> <span class="toc-text">3. Development history and previous partial results</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-What-the-new-manuscripts-claim"><span class="toc-number">4.</span> <span class="toc-text">4. What the new manuscripts claim</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Why-the-advance-matters"><span class="toc-number">5.</span> <span class="toc-text">5. Why the advance matters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-The-main-idea"><span class="toc-number">6.</span> <span class="toc-text">6. The main idea</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Replace-the-full-grid-with-a-hierarchy-of-intervals"><span class="toc-number">6.1.</span> <span class="toc-text">Replace the full grid with a hierarchy of intervals</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Predict-narrow-bands-of-plausible-shifts"><span class="toc-number">6.2.</span> <span class="toc-text">Predict narrow bands of plausible shifts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Refine-estimates-using-sampled-comparisons"><span class="toc-number">6.3.</span> <span class="toc-text">Refine estimates using sampled comparisons</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Count-the-recursive-work-as-carefully-as-the-error"><span class="toc-number">6.4.</span> <span class="toc-text">Count the recursive work as carefully as the error</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Scope-limitations-and-open-questions"><span class="toc-number">7.</span> <span class="toc-text">7. Scope, limitations, and open questions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Sources-and-further-reading"><span class="toc-number">8.</span> <span class="toc-text">8. Sources and further reading</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Source-manuscripts"><span class="toc-number">8.1.</span> <span class="toc-text">Source manuscripts</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Almost-linear expected-time approximation of edit distance
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">hsfzLZH1</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-10-09T04:00:00.000Z" class="dt-published" itemprop="datePublished">2026-10-09</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Math-Digest/">Math Digest</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Theoretical-computer-science/" rel="tag">Theoretical computer science</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <div class="digest-meta"><a href="/math-digest/">← All digests</a><p>Family 121 · Theoretical computer science<br>Importance <strong>4/5</strong> · Provisional editorial rating<br>Sources consulted 2026-10-09</p></div>
+
+<p>Edit distance measures how many insertions, deletions, and substitutions turn one string into another. Its familiar dynamic program examines a quadratic grid of possibilities. Family 121 claims that, for any fixed requested multiplicative accuracy, a randomized algorithm can estimate the distance in almost-linear expected time. The claim carefully distinguishes a numerical estimate from constructing an edit script and fixed accuracy from accuracy that changes with input length.</p>
+<h2 id="1-The-question"><a href="#1-The-question" class="headerlink" title="1. The question"></a>1. The question</h2><p>The strings <code>cat</code> and <code>cut</code> differ by one substitution. Changing <code>cat</code> to <code>cart</code> requires one insertion. More complicated pairs may align only after several shifts, so comparing characters position by position can be misleading.</p>
+<p>For long inputs, quadratic time can be expensive. Can we obtain an estimate as close to the true distance as desired while spending almost only the time needed to read the strings?</p>
+<p>A constant-factor estimate might say the distance is between one hundred and a thousand. A <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mi>ε</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(1+\varepsilon)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">ε</span><span class="mclose">)</span></span></span></span>-approximation with <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi><mo>=</mo><mn>0.01</mn></mrow><annotation encoding="application/x-tex">\varepsilon=0.01</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ε</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.01</span></span></span></span> narrows the allowed excess to one percent. Maintaining this precision while skipping most of the dynamic-programming grid is the main challenge.</p>
+<p>The manuscript claims such an approximation for every fixed rational <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi><mo>∈</mo><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\varepsilon\in(0,1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">ε</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span>, on arbitrary explicitly stored input strings with unit edit costs.</p>
+<h2 id="2-Background-and-essential-definitions"><a href="#2-Background-and-essential-definitions" class="headerlink" title="2. Background and essential definitions"></a>2. Background and essential definitions</h2><h3 id="Edit-operations-and-alignment-paths"><a href="#Edit-operations-and-alignment-paths" class="headerlink" title="Edit operations and alignment paths"></a>Edit operations and alignment paths</h3><p>The unit-cost edit distance <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">ED</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{ED}(x,y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mord mathrm">ED</span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span> is the minimum number of single-symbol insertions, deletions, and substitutions needed to transform <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> into <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>. Each operation costs one; matching equal symbols costs zero.</p>
+<p>Let <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo stretchy="false">(</mo><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">D(i,j)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mopen">(</span><span class="mord mathnormal">i</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">)</span></span></span></span> be the distance between the first <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span> symbols of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> and first <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span></span> symbols of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>. The standard recurrence is</p>
+<div class="digest-equation" tabindex="0" role="group" aria-label="Mathematical equation"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>D</mi><mo stretchy="false">(</mo><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo stretchy="false">)</mo><mo>=</mo><mi>min</mi><mo>⁡</mo><mtext> ⁣</mtext><mrow><mo fence="true">{</mo><mi>D</mi><mo stretchy="false">(</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi><mo stretchy="false">)</mo><mo>+</mo><mn>1</mn><mo separator="true">,</mo><mtext> </mtext><mi>D</mi><mo stretchy="false">(</mo><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo>+</mo><mn>1</mn><mo separator="true">,</mo><mtext> </mtext><mi>D</mi><mo stretchy="false">(</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo>+</mo><msub><mn mathvariant="bold">1</mn><mrow><msub><mi>x</mi><mi>i</mi></msub><mo mathvariant="normal">≠</mo><msub><mi>y</mi><mi>j</mi></msub></mrow></msub><mo fence="true">}</mo></mrow><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">D(i,j)=\min\!\left\{
+D(i-1,j)+1,\ D(i,j-1)+1,
+\ D(i-1,j-1)+\mathbf1_{x_i\ne y_j}
+\right\}.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mopen">(</span><span class="mord mathnormal">i</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="mop">min</span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size1">{</span></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mopen">(</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace"> </span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mopen">(</span><span class="mord mathnormal">i</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace"> </span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mopen">(</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathbf">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3281em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mrel mtight"><span class="mrel mtight"><span class="mord vbox mtight"><span class="thinbox mtight"><span class="rlap mtight"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord mtight"><span class="mrel mtight"></span></span></span><span class="fix"></span></span></span></span></span><span class="mrel mtight">=</span></span><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3281em;"><span style="top:-2.357em;margin-left:-0.0359em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2819em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3473em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size1">}</span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">.</span></span></span></span></span></div>
+<p>The indicator <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mn mathvariant="bold">1</mn><mrow><msub><mi>x</mi><mi>i</mi></msub><mo mathvariant="normal">≠</mo><msub><mi>y</mi><mi>j</mi></msub></mrow></msub></mrow><annotation encoding="application/x-tex">\mathbf1_{x_i\ne y_j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9918em;vertical-align:-0.3473em;"></span><span class="mord"><span class="mord mathbf">1</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3281em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mrel mtight"><span class="mrel mtight"><span class="mord vbox mtight"><span class="thinbox mtight"><span class="rlap mtight"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord mtight"><span class="mrel mtight"></span></span></span><span class="fix"></span></span></span></span></span><span class="mrel mtight">=</span></span><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3281em;"><span style="top:-2.357em;margin-left:-0.0359em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2819em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3473em;"><span></span></span></span></span></span></span></span></span></span> is one when the symbols differ and zero otherwise. Boundary values are <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo stretchy="false">(</mo><mi>i</mi><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">)</mo><mo>=</mo><mi>i</mi></mrow><annotation encoding="application/x-tex">D(i,0)=i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mopen">(</span><span class="mord mathnormal">i</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mi>j</mi><mo stretchy="false">)</mo><mo>=</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">D(0,j)=j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span></span>.</p>
+<p>This can be viewed as a shortest path through a grid. Horizontal and vertical steps insert or delete a symbol; diagonal steps match or substitute. An alignment specifies such a path. The difference between its two coordinates is its current shift.</p>
+<h3 id="Approximation-and-zero-distance"><a href="#Approximation-and-zero-distance" class="headerlink" title="Approximation and zero distance"></a>Approximation and zero distance</h3><p>The claimed output is a nonnegative integer <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>D</mi><mo stretchy="true">^</mo></mover></mrow><annotation encoding="application/x-tex">\widehat D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9233em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9233em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span><span class="svg-align" style="width:calc(100% - 0.1111em);margin-left:0.1111em;top:-3.6833em;"><span class="pstrut" style="height:3em;"></span><span style="height:0.24em;"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="0.24em" viewBox="0 0 1062 239" preserveAspectRatio="none"><path d="M529 0h5l519 115c5 1 9 5 9 10 0 1-1 2-1 3l-4 22
+c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg></span></span></span></span></span></span></span></span></span> satisfying, with the stated probability,</p>
+<div class="digest-equation" tabindex="0" role="group" aria-label="Mathematical equation"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="normal">ED</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo><mo>≤</mo><mover accent="true"><mi>D</mi><mo stretchy="true">^</mo></mover><mo>≤</mo><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mi>ε</mi><mo stretchy="false">)</mo><mi mathvariant="normal">ED</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\operatorname{ED}(x,y)\le\widehat D
+\le(1+\varepsilon)\operatorname{ED}(x,y).</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mord mathrm">ED</span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0593em;vertical-align:-0.136em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9233em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span><span class="svg-align" style="width:calc(100% - 0.1111em);margin-left:0.1111em;top:-3.6833em;"><span class="pstrut" style="height:3em;"></span><span style="height:0.24em;"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="0.24em" viewBox="0 0 1062 239" preserveAspectRatio="none"><path d="M529 0h5l519 115c5 1 9 5 9 10 0 1-1 2-1 3l-4 22
+c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">ε</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mord mathrm">ED</span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></div>
+<p>This is a one-sided multiplicative estimate on successful runs. If the strings are equal, their distance is zero, and a multiplicative approximation must return zero too. The algorithm explicitly does so deterministically.</p>
+<p>A distance estimate does not identify the individual edits achieving that distance. Producing such a script is a separate output requirement absent from the theorem.</p>
+<h3 id="Fixed-accuracy-and-expected-complexity"><a href="#Fixed-accuracy-and-expected-complexity" class="headerlink" title="Fixed accuracy and expected complexity"></a>Fixed accuracy and expected complexity</h3><p>Write <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>=</mo><mi mathvariant="normal">∣</mi><mi>x</mi><mi mathvariant="normal">∣</mi><mo>+</mo><mi mathvariant="normal">∣</mi><mi>y</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">N=|x|+|y|</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal">x</span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord">∣</span></span></span></span>. The time bound is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>N</mi><mrow><mn>1</mn><mo>+</mo><mi>o</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">N^{1+o(1)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.888em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mbin mtight">+</span><span class="mord mathnormal mtight">o</span><span class="mopen mtight">(</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span> as <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> grows, for each fixed rational <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi></mrow><annotation encoding="application/x-tex">\varepsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ε</span></span></span></span>. The hidden constants and threshold may depend on <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi></mrow><annotation encoding="application/x-tex">\varepsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ε</span></span></span></span>.</p>
+<p>This does not promise polynomial dependence on <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi mathvariant="normal">/</mi><mi>ε</mi></mrow><annotation encoding="application/x-tex">1/\varepsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/</span><span class="mord mathnormal">ε</span></span></span></span>. In particular, one cannot substitute an accuracy such as <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi><mo>=</mo><mn>1</mn><mi mathvariant="normal">/</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">\varepsilon=1/N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ε</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> and infer an almost-linear exact algorithm.</p>
+<p>“Worst-case expected time” means the expectation is bounded for every input pair, with randomness only inside the algorithm. Individual random executions may take longer than the expectation bound.</p>
+<h2 id="3-Development-history-and-previous-partial-results"><a href="#3-Development-history-and-previous-partial-results" class="headerlink" title="3. Development history and previous partial results"></a>3. Development history and previous partial results</h2><p>Levenshtein’s work on errors in transmitted strings helped establish edit distance as a basic measure of sequence difference. <a target="_blank" rel="noopener" href="https://doi.org/10.1145/321796.321811">Wagner and Fischer</a> gave the standard quadratic dynamic program.</p>
+<p><a target="_blank" rel="noopener" href="https://doi.org/10.1016/0022-0000(80)90002-1">Masek and Paterson</a> achieved a logarithmic speedup under their alphabet and cost assumptions. Distance-sensitive algorithms offered another route: <a target="_blank" rel="noopener" href="https://doi.org/10.1016/S0019-9958(85)80046-2">Ukkonen</a> and <a target="_blank" rel="noopener" href="https://doi.org/10.1016/0196-6774(89)90010-2">Landau and Vishkin</a> exploited cases where the number of edits is small.</p>
+<p>For unrestricted exact computation, <a target="_blank" rel="noopener" href="https://doi.org/10.1137/15M1053128">Backurs and Indyk</a> showed that a strongly subquadratic deterministic algorithm would refute the Strong Exponential Time Hypothesis, a conjecture about satisfiability algorithms. This conditional barrier concerns exact answers and does not prohibit fixed-accuracy approximation.</p>
+<p>Early fast approximations allowed factors growing with string length. <a target="_blank" rel="noopener" href="https://doi.org/10.1145/1284320.1284322">Ostrovsky and Rabani</a> developed low-distortion embeddings, while later hierarchical methods and precision sampling improved the tradeoff between runtime and approximation factor.</p>
+<p><a target="_blank" rel="noopener" href="https://doi.org/10.1145/3422823">Chakraborty and collaborators</a> reached constant-factor approximation in truly subquadratic time. Subsequent algorithms brought near-linear exponents first for sufficiently far input pairs and then, in Andoni and Nosatzki’s work cited by M1, for general pairs with a constant depending on the chosen runtime exponent.</p>
+<p>For factors arbitrarily close to one, <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2603.29702">Mao and Rubinstein</a> obtained a randomized approximation scheme with a substantial improvement over quadratic time. The present manuscript claims to combine that fixed near-one accuracy with an almost-linear expected exponent.</p>
+<p>These earlier milestones solve different points on a two-parameter tradeoff. A fast algorithm with an unspecified large constant factor is not already an approximation scheme, and a near-one factor does not alone imply near-linear work.</p>
+<h2 id="4-What-the-new-manuscripts-claim"><a href="#4-What-the-new-manuscripts-claim" class="headerlink" title="4. What the new manuscripts claim"></a>4. What the new manuscripts claim</h2><p>M1 states that one uniform randomized algorithm, given <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo separator="true">,</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x,y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> and rational <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi><mo>∈</mo><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\varepsilon\in(0,1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">ε</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span>, returns an integer <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>D</mi><mo stretchy="true">^</mo></mover></mrow><annotation encoding="application/x-tex">\widehat D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9233em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9233em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span><span class="svg-align" style="width:calc(100% - 0.1111em);margin-left:0.1111em;top:-3.6833em;"><span class="pstrut" style="height:3em;"></span><span style="height:0.24em;"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="0.24em" viewBox="0 0 1062 239" preserveAspectRatio="none"><path d="M529 0h5l519 115c5 1 9 5 9 10 0 1-1 2-1 3l-4 22
+c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg></span></span></span></span></span></span></span></span></span> such that</p>
+<div class="digest-equation" tabindex="0" role="group" aria-label="Mathematical equation"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>Pr</mi><mo>⁡</mo><mo stretchy="false">[</mo><mi mathvariant="normal">ED</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo><mo>≤</mo><mover accent="true"><mi>D</mi><mo stretchy="true">^</mo></mover><mo>≤</mo><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mi>ε</mi><mo stretchy="false">)</mo><mi mathvariant="normal">ED</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo><mo stretchy="false">]</mo><mo>≥</mo><mfrac><mn>2</mn><mn>3</mn></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\Pr[\operatorname{ED}(x,y)\le\widehat D
+\le(1+\varepsilon)\operatorname{ED}(x,y)]\ge\frac23.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">Pr</span><span class="mopen">[</span><span class="mop"><span class="mord mathrm">ED</span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0593em;vertical-align:-0.136em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9233em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span><span class="svg-align" style="width:calc(100% - 0.1111em);margin-left:0.1111em;top:-3.6833em;"><span class="pstrut" style="height:3em;"></span><span style="height:0.24em;"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="0.24em" viewBox="0 0 1062 239" preserveAspectRatio="none"><path d="M529 0h5l519 115c5 1 9 5 9 10 0 1-1 2-1 3l-4 22
+c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">ε</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mord mathrm">ED</span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)]</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0074em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">3</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord">.</span></span></span></span></span></div>
+<p>For every fixed rational accuracy, its worst-case expected running time is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>N</mi><mrow><mn>1</mn><mo>+</mo><mi>o</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">N^{1+o(1)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.888em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mbin mtight">+</span><span class="mord mathnormal mtight">o</span><span class="mopen mtight">(</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span> on a logarithmic-word RAM.</p>
+<p>The alphabet consists of integer labels of polynomially bounded magnitude in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">N+2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span>, so each symbol fits in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>N</mi><mo>+</mo><mn>2</mn><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\log(N+2))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mclose">))</span></span></span></span> bits. The number of distinct symbols need not be constant.</p>
+<p>The bound includes reading the input, preprocessing, numerical work, random sampling, and data-structure operations. Equal strings return zero deterministically. The algorithm uses exact computation below an accuracy-dependent size threshold, which the paper describes as very large.</p>
+<p>There is no claimed joint bound when accuracy varies with <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span>, no polynomial dependence on inverse accuracy, and no requirement to reconstruct an edit script. These are material parts of the theorem’s scope.</p>
+<h2 id="5-Why-the-advance-matters"><a href="#5-Why-the-advance-matters" class="headerlink" title="5. Why the advance matters"></a>5. Why the advance matters</h2><p><strong>Importance: 4&#x2F;5, provisional.</strong> Edit distance is a central string problem with uses in sequence comparison, text processing, and algorithms for noisy data. A near-one approximation in almost-linear expected time would substantially improve the theoretical accuracy–time frontier.</p>
+<p>The result would also sharpen our understanding of the gap between exact and approximate computation. Conditional barriers for exact edit distance could coexist with highly accurate fixed-factor estimates much closer to input-reading time.</p>
+<p>The claim is not an immediate application benchmark. Its thresholds and dependence on accuracy may be prohibitive, and real sequence-analysis systems often use weighted substitutions or domain-specific alignment penalties outside the unit-cost model.</p>
+<p>The score reflects the broad importance of the problem and the asymptotic tradeoff, while retaining those computational and modeling qualifications.</p>
+<h2 id="6-The-main-idea"><a href="#6-The-main-idea" class="headerlink" title="6. The main idea"></a>6. The main idea</h2><h3 id="Replace-the-full-grid-with-a-hierarchy-of-intervals"><a href="#Replace-the-full-grid-with-a-hierarchy-of-intervals" class="headerlink" title="Replace the full grid with a hierarchy of intervals"></a>Replace the full grid with a hierarchy of intervals</h3><p>The first string is recursively split into intervals. A state pairs one source interval with a target interval in the second string. Its true cost is the edit distance between those substrings.</p>
+<p>An action assigns target intervals to the source interval’s children. Their boundaries need not line up perfectly; explicit penalties account for gaps and overlaps. This flexibility lets the algorithm compare nearby candidate alignments without enumerating every exact grid path.</p>
+<p>The starting estimates are coarse upper bounds. They are computed only when requested, although the successful accuracy event covers the entire possible state domain. That is needed because later requests depend on earlier random answers.</p>
+<h3 id="Predict-narrow-bands-of-plausible-shifts"><a href="#Predict-narrow-bands-of-plausible-shifts" class="headerlink" title="Predict narrow bands of plausible shifts"></a>Predict narrow bands of plausible shifts</h3><p>An optimal alignment’s shift changes as insertions and deletions accumulate. Preliminary cost estimates predict how that shift should evolve across an interval. The algorithm restricts attention to a narrow band around the predicted target positions.</p>
+<p>The analysis compares these bands with an optimal alignment that is fixed for mathematical accounting, not computed by the algorithm. A cost-weighted measure of deviation telescopes across the interval hierarchy.</p>
+<p>This shows that places where the prediction fails cannot consume too much total alignment cost. Elsewhere, the computed band contains a suitable comparison action or the difference in substring lengths already explains most of the cost.</p>
+<h3 id="Refine-estimates-using-sampled-comparisons"><a href="#Refine-estimates-using-sampled-comparisons" class="headerlink" title="Refine estimates using sampled comparisons"></a>Refine estimates using sampled comparisons</h3><p>Within a band, a prediction rule balances candidate actions using an entropy regularization term. This is a method of avoiding excessive commitment to one option while learning from evaluated child costs.</p>
+<p>Shared samples let nearby candidates reuse information. Bounds on cumulative excess relative to the comparison alignment control the error of each refinement pass. Repetitions and medians then turn these bounds into improved simultaneous upper estimates.</p>
+<p>The manuscript handles possible intermediate underestimates explicitly, so an error in one subtree cannot cancel an unrelated overestimate and make the total analysis look artificially good.</p>
+<h3 id="Count-the-recursive-work-as-carefully-as-the-error"><a href="#Count-the-recursive-work-as-carefully-as-the-error" class="headerlink" title="Count the recursive work as carefully as the error"></a>Count the recursive work as carefully as the error</h3><p>A numerically accurate recursion could still be quadratic if it evaluates too many child states. The algorithm therefore distinguishes operations that reuse stored values from those that request new values at the current refinement level.</p>
+<p>Along a dependency path, a request either descends the interval tree or moves to an earlier refinement stage. Counting these possibilities bounds the expected number of actual evaluations. The same accounting includes finite optimization, exact random sampling, and rational arithmetic.</p>
+<p>This joint control of alignment error and recursive query count is the route to the claimed almost-linear exponent.</p>
+<h2 id="7-Scope-limitations-and-open-questions"><a href="#7-Scope-limitations-and-open-questions" class="headerlink" title="7. Scope, limitations, and open questions"></a>7. Scope, limitations, and open questions</h2><p>The theorem estimates one supplied pair. It does not construct one common low-distortion embedding for all strings, so lower bounds for such embeddings address a different task.</p>
+<p>Insertions, deletions, and substitutions all cost one. Arbitrary weighted or metric edit costs are outside this statement.</p>
+<p>The guarantee is expected time with success probability at least two thirds, at fixed accuracy. Stronger bounds on every run, efficient dependence on changing accuracy, practical constants, and edit-script reconstruction are separate questions.</p>
+<p>An asymptotic approximation scheme should therefore be read as an answer about what growth rates are possible, rather than a claim that a standard quadratic implementation can immediately be replaced for ordinary input sizes.</p>
+<h2 id="8-Sources-and-further-reading"><a href="#8-Sources-and-further-reading" class="headerlink" title="8. Sources and further reading"></a>8. Sources and further reading</h2><p>M1’s Theorem 1.1 and the following paragraph specify the fixed-accuracy and output conventions. Its introduction traces the approximation frontier, and its proof overview separates alignment prediction from the accounting needed to keep recursive work small.</p>
+<h3 id="Source-manuscripts"><a href="#Source-manuscripts" class="headerlink" title="Source manuscripts"></a>Source manuscripts</h3><ul>
+<li><strong>M1.</strong> OpenAI, <a target="_blank" rel="noopener" href="https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/An-Almost-Linear-Approximation-Scheme-for-Edit-Distance-September-24-2026/paper.pdf">An Almost-Linear Approximation Scheme for Edit Distance</a> (September 24, 2026).</li>
+</ul>
+<p>Sources consulted on 9 October 2026 at repository revision <a target="_blank" rel="noopener" href="https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb"><code>fd4aeeb</code></a>. <a href="/downloads/math-digest/family-121.bib">Download the manuscript citations</a>.</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/papers/">Papers</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="http://github.com/hsfzLZH1">Projects</a></li>
+        
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-The-question"><span class="toc-number">1.</span> <span class="toc-text">1. The question</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Background-and-essential-definitions"><span class="toc-number">2.</span> <span class="toc-text">2. Background and essential definitions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Edit-operations-and-alignment-paths"><span class="toc-number">2.1.</span> <span class="toc-text">Edit operations and alignment paths</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Approximation-and-zero-distance"><span class="toc-number">2.2.</span> <span class="toc-text">Approximation and zero distance</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fixed-accuracy-and-expected-complexity"><span class="toc-number">2.3.</span> <span class="toc-text">Fixed accuracy and expected complexity</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Development-history-and-previous-partial-results"><span class="toc-number">3.</span> <span class="toc-text">3. Development history and previous partial results</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-What-the-new-manuscripts-claim"><span class="toc-number">4.</span> <span class="toc-text">4. What the new manuscripts claim</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Why-the-advance-matters"><span class="toc-number">5.</span> <span class="toc-text">5. Why the advance matters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-The-main-idea"><span class="toc-number">6.</span> <span class="toc-text">6. The main idea</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Replace-the-full-grid-with-a-hierarchy-of-intervals"><span class="toc-number">6.1.</span> <span class="toc-text">Replace the full grid with a hierarchy of intervals</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Predict-narrow-bands-of-plausible-shifts"><span class="toc-number">6.2.</span> <span class="toc-text">Predict narrow bands of plausible shifts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Refine-estimates-using-sampled-comparisons"><span class="toc-number">6.3.</span> <span class="toc-text">Refine estimates using sampled comparisons</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Count-the-recursive-work-as-carefully-as-the-error"><span class="toc-number">6.4.</span> <span class="toc-text">Count the recursive work as carefully as the error</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Scope-limitations-and-open-questions"><span class="toc-number">7.</span> <span class="toc-text">7. Scope, limitations, and open questions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Sources-and-further-reading"><span class="toc-number">8.</span> <span class="toc-text">8. Sources and further reading</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Source-manuscripts"><span class="toc-number">8.1.</span> <span class="toc-text">Source manuscripts</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://hsfzlzh1.github.io/math-digest/family-121/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hsfzlzh1.github.io/math-digest/family-121/&text=Almost-linear expected-time approximation of edit distance"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://hsfzlzh1.github.io/math-digest/family-121/&title=Almost-linear expected-time approximation of edit distance"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://hsfzlzh1.github.io/math-digest/family-121/&is_video=false&description=Almost-linear expected-time approximation of edit distance"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Almost-linear expected-time approximation of edit distance&body=Check out this article: https://hsfzlzh1.github.io/math-digest/family-121/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://hsfzlzh1.github.io/math-digest/family-121/&title=Almost-linear expected-time approximation of edit distance"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-121/&title=Almost-linear expected-time approximation of edit distance"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-121/&title=Almost-linear expected-time approximation of edit distance"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-121/&title=Almost-linear expected-time approximation of edit distance"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://hsfzlzh1.github.io/math-digest/family-121/&name=Almost-linear expected-time approximation of edit distance&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://hsfzlzh1.github.io/math-digest/family-121/&t=Almost-linear expected-time approximation of edit distance"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2026
+    hsfzLZH1
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/papers/">Papers</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/hsfzLZH1">Projects</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?22c8630d664adbd9658b25d22a3fb1b5";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

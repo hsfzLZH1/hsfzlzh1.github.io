@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="A claimed O(T^{2&#x2F;5} polylog T) space simulation for a fixed deterministic machine with one writable tape and local head motion.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="One-tape computation: trading unrestricted time for two-fifths-power space">
+<meta property="og:url" content="https://hsfzlzh1.github.io/math-digest/family-137/index.html">
+<meta property="og:site_name" content="hsfzLZH1&#39;s Homepage">
+<meta property="og:description" content="A claimed O(T^{2&#x2F;5} polylog T) space simulation for a fixed deterministic machine with one writable tape and local head motion.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-10-09T04:00:00.000Z">
+<meta property="article:modified_time" content="2026-10-09T04:00:00.000Z">
+<meta property="article:author" content="hsfzLZH1">
+<meta property="article:tag" content="Theoretical computer science">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>One-tape computation: trading unrestricted time for two-fifths-power space</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 8.1.1"><link rel="stylesheet" href="/css/math-digest.css"><link rel="stylesheet" href="/lib/katex/katex.min.css">
+</head>
+
+<body class="max-width mx-auto px3 ltr math-digest-page">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/papers/">Papers</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/hsfzLZH1">Projects</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/math-digest/family-136/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/math-digest/family-138/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://hsfzlzh1.github.io/math-digest/family-137/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hsfzlzh1.github.io/math-digest/family-137/&text=One-tape computation: trading unrestricted time for two-fifths-power space"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://hsfzlzh1.github.io/math-digest/family-137/&title=One-tape computation: trading unrestricted time for two-fifths-power space"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://hsfzlzh1.github.io/math-digest/family-137/&is_video=false&description=One-tape computation: trading unrestricted time for two-fifths-power space"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=One-tape computation: trading unrestricted time for two-fifths-power space&body=Check out this article: https://hsfzlzh1.github.io/math-digest/family-137/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://hsfzlzh1.github.io/math-digest/family-137/&title=One-tape computation: trading unrestricted time for two-fifths-power space"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-137/&title=One-tape computation: trading unrestricted time for two-fifths-power space"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-137/&title=One-tape computation: trading unrestricted time for two-fifths-power space"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-137/&title=One-tape computation: trading unrestricted time for two-fifths-power space"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://hsfzlzh1.github.io/math-digest/family-137/&name=One-tape computation: trading unrestricted time for two-fifths-power space&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://hsfzlzh1.github.io/math-digest/family-137/&t=One-tape computation: trading unrestricted time for two-fifths-power space"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-The-question"><span class="toc-number">1.</span> <span class="toc-text">1. The question</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Background-and-essential-definitions"><span class="toc-number">2.</span> <span class="toc-text">2. Background and essential definitions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Development-history-and-previous-partial-results"><span class="toc-number">3.</span> <span class="toc-text">3. Development history and previous partial results</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-What-the-new-manuscripts-claim"><span class="toc-number">4.</span> <span class="toc-text">4. What the new manuscripts claim</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Why-the-advance-matters"><span class="toc-number">5.</span> <span class="toc-text">5. Why the advance matters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-The-main-idea"><span class="toc-number">6.</span> <span class="toc-text">6. The main idea</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cut-the-tape-where-the-head-crosses-infrequently"><span class="toc-number">6.1.</span> <span class="toc-text">Cut the tape where the head crosses infrequently</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Separate-epochs-from-smaller-rounds"><span class="toc-number">6.2.</span> <span class="toc-text">Separate epochs from smaller rounds</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Borrow-registers-and-restore-their-contents"><span class="toc-number">6.3.</span> <span class="toc-text">Borrow registers and restore their contents</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Scope-limitations-and-open-questions"><span class="toc-number">7.</span> <span class="toc-text">7. Scope, limitations, and open questions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Sources-and-further-reading"><span class="toc-number">8.</span> <span class="toc-text">8. Sources and further reading</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Source-manuscripts"><span class="toc-number">8.1.</span> <span class="toc-text">Source manuscripts</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        One-tape computation: trading unrestricted time for two-fifths-power space
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">hsfzLZH1</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-10-09T04:00:00.000Z" class="dt-published" itemprop="datePublished">2026-10-09</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Math-Digest/">Math Digest</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Theoretical-computer-science/" rel="tag">Theoretical computer science</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <div class="digest-meta"><a href="/math-digest/">← All digests</a><p>Family 137 · Theoretical computer science<br>Importance <strong>2/5</strong> · Provisional editorial rating<br>Sources consulted 2026-10-09</p></div>
+
+<h2 id="1-The-question"><a href="#1-The-question" class="headerlink" title="1. The question"></a>1. The question</h2><p>A computation that runs for <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> steps can visit and modify as many as <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> tape cells. To reproduce its final answer, must a simulator remember all those cells at once?</p>
+<p>If time is unlimited, the simulator can recompute information instead of retaining it. This creates a time–space tradeoff: repeated reconstruction may save memory at the cost of an enormous increase in running time.</p>
+<p>For deterministic machines with one writable tape, a classical simulation uses roughly the square root of the original time as space. The manuscript in this family claims a smaller exponent:</p>
+<div class="digest-equation" tabindex="0" role="group" aria-label="Mathematical equation"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>O</mi><mtext> ⁣</mtext><mrow><mo fence="true">(</mo><msup><mi>T</mi><mrow><mn>2</mn><mi mathvariant="normal">/</mi><mn>5</mn></mrow></msup><mi mathvariant="normal">polylog</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>T</mi><mo>+</mo><mn>2</mn><mo stretchy="false">)</mo><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">O\!\left(T^{2/5}\operatorname{polylog}(T+2)\right)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.8em;vertical-align:-0.65em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size2">(</span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.938em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2/5</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mord mathrm" style="margin-right:0.01389em;">polylog</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">2</span><span class="mclose">)</span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size2">)</span></span></span></span></span></span></span></div>
+<p>work-space bits. Here <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">polylog</mi><mo>⁡</mo></mrow><annotation encoding="application/x-tex">\operatorname{polylog}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mop"><span class="mord mathrm" style="margin-right:0.01389em;">polylog</span></span></span></span></span> means a fixed power of a logarithm.</p>
+<p>The machine model and output are essential. The source has one writable tape and one writable head moving locally. A fixed number of additional read-only heads are allowed. The simulator reports the finite-control and halting outcome by the supplied time cap; it need not materialize the entire final tape. No useful simulation-time bound is asserted.</p>
+<h2 id="2-Background-and-essential-definitions"><a href="#2-Background-and-essential-definitions" class="headerlink" title="2. Background and essential definitions"></a>2. Background and essential definitions</h2><p>A deterministic Turing machine has a finite control state, a finite tape alphabet, and a head that reads a symbol, writes a symbol, changes state, and moves locally. In this theorem the writable tape is indexed by integers and its head moves at most one cell per step.</p>
+<p>The machine itself is fixed. The varying inputs are a public input <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> and a binary-encoded time cap <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>≥</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">T\ge2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8193em;vertical-align:-0.136em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span>. Halting states are made absorbing, so asking for the state after <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> steps also records whether the machine halted earlier and what its outcome was.</p>
+<p>Work space counts bits used by the simulator, excluding the read-only input. The simulator may rescan that input and recompute intermediate objects. Its time can be much larger than <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span>.</p>
+<p>The theorem includes a precise access condition for initial tape symbols. A fixed procedure must supply the symbol at any displacement <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∣</mi><mi>q</mi><mi mathvariant="normal">∣</mi><mo>≤</mo><mi>T</mi></mrow><annotation encoding="application/x-tex">|q|\le T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> from a relevant head origin using polylogarithmic space. The underlying initial symbol functions are fixed independently of the cap. This rules out hiding a cap-dependent computation inside the initial tape description.</p>
+<p>Ordinary explicit inputs satisfy the access condition: keep a counter and rescan the input to the requested position or an endmarker. The condition also permits some implicit encodings, provided they admit the same small-space access throughout the entire numerical range that local simulations may inspect.</p>
+<p>A bound <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>O</mi><mo stretchy="true">~</mo></mover><mo stretchy="false">(</mo><msup><mi>T</mi><mrow><mn>2</mn><mi mathvariant="normal">/</mi><mn>5</mn></mrow></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\widetilde O(T^{2/5})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1933em;vertical-align:-0.25em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9433em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span><span class="svg-align" style="width:calc(100% - 0.1667em);margin-left:0.1667em;top:-3.6833em;"><span class="pstrut" style="height:3em;"></span><span style="height:0.26em;"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="0.26em" viewBox="0 0 600 260" preserveAspectRatio="none"><path d="M200 55.538c-77 0-168 73.953-177 73.953-3 0-7
+-2.175-9-5.437L2 97c-1-2-2-4-2-6 0-4 2-7 5-9l20-12C116 12 171 0 207 0c86 0
+ 114 68 191 68 78 0 168-68 177-68 4 0 7 2 9 5l12 19c1 2.175 2 4.35 2 6.525 0
+ 4.35-2 7.613-5 9.788l-19 13.05c-92 63.077-116.937 75.308-183 76.128
+-68.267.847-113-73.952-191-73.952z"/></svg></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2/5</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> abbreviates <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>T</mi><mrow><mn>2</mn><mi mathvariant="normal">/</mi><mn>5</mn></mrow></msup></mrow><annotation encoding="application/x-tex">T^{2/5}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.888em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2/5</span></span></span></span></span></span></span></span></span></span></span></span> times logarithmic factors. It implies <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>T</mi><mrow><mn>2</mn><mi mathvariant="normal">/</mi><mn>5</mn><mo>+</mo><mi>η</mi></mrow></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(T^{2/5+\eta})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.138em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2/5</span><span class="mbin mtight">+</span><span class="mord mathnormal mtight" style="margin-right:0.03588em;">η</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> for every fixed <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>η</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\eta&gt;0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">η</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>, but not a log-free <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>T</mi><mrow><mn>2</mn><mi mathvariant="normal">/</mi><mn>5</mn></mrow></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(T^{2/5})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.138em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2/5</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> endpoint.</p>
+<h2 id="3-Development-history-and-previous-partial-results"><a href="#3-Development-history-and-previous-partial-results" class="headerlink" title="3. Development history and previous partial results"></a>3. Development history and previous partial results</h2><p>Classical work on tape bounds and time–space tradeoffs asked how a long sequential computation could be reconstructed with less stored information. Paterson’s <a target="_blank" rel="noopener" href="https://doi.org/10.1016/S0022-0000(72)80017-5">1972 tape-bound paper</a>, Ibarra and Moran’s single-tape tradeoffs, and Liśkiewicz and Loryś’s <a target="_blank" rel="noopener" href="https://doi.org/10.1137/0219034">1990 simulations</a> form part of this background.</p>
+<p>Williams’s account attributes the classical one-read&#x2F;write-tape square-root-space simulation to Hopcroft and Ullman. More recently, Williams proved a broader <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2502.17779">multitape time-to-space simulation</a> using <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msqrt><mrow><mi>t</mi><mi>log</mi><mo>⁡</mo><mi>t</mi></mrow></msqrt><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\sqrt{t\log t})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.085em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.835em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">t</span></span></span><span style="top:-2.795em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.205em;"><span></span></span></span></span></span><span class="mclose">)</span></span></span></span> space under the stated time assumptions. His work asks whether the one-tape square-root exponent can be reduced by a fixed positive amount.</p>
+<p>A key ingredient is the <a target="_blank" rel="noopener" href="https://doi.org/10.1145/3618260.3649664">Cook–Mertz tree-evaluation algorithm</a>. Its use of shared storage can avoid paying the full size of a value at every recursive level. Goldreich’s <a target="_blank" rel="noopener" href="https://eccc.weizmann.ac.il/report/2024/109/">exposition</a> explains the role of interpolation and a global register pool.</p>
+<p>The present manuscript adapts this kind of recomputation to the special geometry of one writable head. Its proposed gain comes from organizing visits to tape blocks into epochs and arranging that large guesses are retained only on selected recursive dependencies.</p>
+<p>The claim is therefore more specific than a new general multitape simulation. It answers the one-tape exponent question in the supplied-cap and symbol-access model, while separately retaining a square-root-type result for a fixed number of writable tapes.</p>
+<h2 id="4-What-the-new-manuscripts-claim"><a href="#4-What-the-new-manuscripts-claim" class="headerlink" title="4. What the new manuscripts claim"></a>4. What the new manuscripts claim</h2><p>Fix a deterministic machine with one writable tape and head, a fixed number of read-only heads, fixed head origins, local movement, and a fixed initial-symbol accessor satisfying the stated polylogarithmic-space condition. For every allowed <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>T</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(x,T)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mclose">)</span></span></span></span>, the manuscript claims a deterministic simulation of the finite-control and halting outcome by time <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> using</p>
+<div class="digest-equation" tabindex="0" role="group" aria-label="Mathematical equation"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mover accent="true"><mi>O</mi><mo stretchy="true">~</mo></mover><mo stretchy="false">(</mo><msup><mi>T</mi><mrow><mn>2</mn><mi mathvariant="normal">/</mi><mn>5</mn></mrow></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\widetilde O(T^{2/5})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1933em;vertical-align:-0.25em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9433em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span><span class="svg-align" style="width:calc(100% - 0.1667em);margin-left:0.1667em;top:-3.6833em;"><span class="pstrut" style="height:3em;"></span><span style="height:0.26em;"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="0.26em" viewBox="0 0 600 260" preserveAspectRatio="none"><path d="M200 55.538c-77 0-168 73.953-177 73.953-3 0-7
+-2.175-9-5.437L2 97c-1-2-2-4-2-6 0-4 2-7 5-9l20-12C116 12 171 0 207 0c86 0
+ 114 68 191 68 78 0 168-68 177-68 4 0 7 2 9 5l12 19c1 2.175 2 4.35 2 6.525 0
+ 4.35-2 7.613-5 9.788l-19 13.05c-92 63.077-116.937 75.308-183 76.128
+-68.267.847-113-73.952-191-73.952z"/></svg></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.938em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2/5</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></div>
+<p>work-space bits.</p>
+<p>Constants may depend on the fixed machine and accessor but not on the varying input or cap. The bound includes the simulator’s working storage, while the public read-only input itself is excluded. The full final writable tape is not required as output.</p>
+<p>If the access condition holds at every cap and the original machine halts after <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span> steps, no running-time bound need be supplied in advance. Trying successively larger caps gives the outcome in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>O</mi><mo stretchy="true">~</mo></mover><mo stretchy="false">(</mo><mo stretchy="false">(</mo><mi>t</mi><mo>+</mo><mn>2</mn><msup><mo stretchy="false">)</mo><mrow><mn>2</mn><mi mathvariant="normal">/</mi><mn>5</mn></mrow></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\widetilde O((t+2)^{2/5})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1933em;vertical-align:-0.25em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9433em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span><span class="svg-align" style="width:calc(100% - 0.1667em);margin-left:0.1667em;top:-3.6833em;"><span class="pstrut" style="height:3em;"></span><span style="height:0.26em;"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="0.26em" viewBox="0 0 600 260" preserveAspectRatio="none"><path d="M200 55.538c-77 0-168 73.953-177 73.953-3 0-7
+-2.175-9-5.437L2 97c-1-2-2-4-2-6 0-4 2-7 5-9l20-12C116 12 171 0 207 0c86 0
+ 114 68 191 68 78 0 168-68 177-68 4 0 7 2 9 5l12 19c1 2.175 2 4.35 2 6.525 0
+ 4.35-2 7.613-5 9.788l-19 13.05c-92 63.077-116.937 75.308-183 76.128
+-68.267.847-113-73.952-191-73.952z"/></svg></span></span></span></span></span></span><span class="mopen">((</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.138em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2/5</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> space.</p>
+<p>For every fixed <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>δ</mi><mo>&lt;</mo><mn>1</mn><mi mathvariant="normal">/</mi><mn>10</mn></mrow><annotation encoding="application/x-tex">0&lt;\delta&lt;1/10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6835em;vertical-align:-0.0391em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7335em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/10</span></span></span></span>, the logarithmic factors can be absorbed to give <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>T</mi><mrow><mn>1</mn><mi mathvariant="normal">/</mi><mn>2</mn><mo>−</mo><mi>δ</mi></mrow></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(T^{1/2-\delta})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.138em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1/2</span><span class="mbin mtight">−</span><span class="mord mathnormal mtight" style="margin-right:0.03785em;">δ</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>. This is the claimed fixed improvement over the square-root exponent. The theorem does not assert the endpoint <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi><mo>=</mo><mn>1</mn><mi mathvariant="normal">/</mi><mn>10</mn></mrow><annotation encoding="application/x-tex">\delta=1/10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03785em;">δ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/10</span></span></span></span> without logarithmic losses.</p>
+<p>The manuscript also discusses space-hierarchy consequences for suitable decision languages in the one-writable-head model. Those are class nonmembership statements, not lower bounds at every input length, and do not extend to arbitrary multitape or random-access machines. The core theorem is the simulation with its explicit access and output conventions.</p>
+<h2 id="5-Why-the-advance-matters"><a href="#5-Why-the-advance-matters" class="headerlink" title="5. Why the advance matters"></a>5. Why the advance matters</h2><p><strong>Provisional importance: 2&#x2F;5.</strong> The result would improve a longstanding space exponent in a fundamental but restricted computation model. It shows how local tape motion can support more aggressive recomputation than the standard square-root organization.</p>
+<p>The exponent reduction is mathematically meaningful even with logarithmic factors. For sufficiently large caps, a fixed power saving dominates any fixed logarithmic overhead. The theorem also handles ordinary explicit input access and additional read-only heads, making the model broader than a completely isolated blank-tape computation.</p>
+<p>The rating reflects the specialization of the conclusion. Simulation time is unrestricted, there is only one writable head, and the output is a finite-control outcome. These restrictions limit direct algorithmic applications compared with a fast general-purpose simulation or a bound for arbitrary writable tapes.</p>
+<p>The main methodological interest is the accounting of suspended information along recursive calls. Reducing memory requires controlling not only the size of each local object but also which objects must remain live together while deeper computations run.</p>
+<h2 id="6-The-main-idea"><a href="#6-The-main-idea" class="headerlink" title="6. The main idea"></a>6. The main idea</h2><h3 id="Cut-the-tape-where-the-head-crosses-infrequently"><a href="#Cut-the-tape-where-the-head-crosses-infrequently" class="headerlink" title="Cut the tape where the head crosses infrequently"></a>Cut the tape where the head crosses infrequently</h3><p>Partition the writable tape into blocks of width <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span>, allowing the partition’s offset to vary. Averaging over offsets shows that one choice has only <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>T</mi><mi mathvariant="normal">/</mi><mi>b</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(T/b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord">/</span><span class="mord mathnormal">b</span><span class="mclose">)</span></span></span></span> block visits. The head moves one cell at a time, so it cannot cross many block boundaries without spending steps.</p>
+<p>During one visit, a long block of tape interacts with the rest of the computation through a short controller description: machine state, head positions, elapsed time, and terminal flags. Once a candidate controller transcript is fixed, all visits to an individual block can be replayed from that block’s initial contents.</p>
+<p>This factors consistency over blocks. Rather than store the whole tape, the simulator can enumerate proposed transcripts and check their local consequences, using recomputation whenever old block contents are needed.</p>
+<h3 id="Separate-epochs-from-smaller-rounds"><a href="#Separate-epochs-from-smaller-rounds" class="headerlink" title="Separate epochs from smaller rounds"></a>Separate epochs from smaller rounds</h3><p>Group about <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span> block visits into an epoch. Within an epoch, append controller information in rounds of about <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mi>b</mi></msqrt></mrow><annotation encoding="application/x-tex">\sqrt b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.1078em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9322em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="padding-left:0.833em;">b</span></span><span style="top:-2.8922em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1078em;"><span></span></span></span></span></span></span></span></span> visits. A block and the relevant history each fit in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>O</mi><mo stretchy="true">~</mo></mover><mo stretchy="false">(</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\widetilde O(b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1933em;vertical-align:-0.25em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9433em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span><span class="svg-align" style="width:calc(100% - 0.1667em);margin-left:0.1667em;top:-3.6833em;"><span class="pstrut" style="height:3em;"></span><span style="height:0.26em;"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="0.26em" viewBox="0 0 600 260" preserveAspectRatio="none"><path d="M200 55.538c-77 0-168 73.953-177 73.953-3 0-7
+-2.175-9-5.437L2 97c-1-2-2-4-2-6 0-4 2-7 5-9l20-12C116 12 171 0 207 0c86 0
+ 114 68 191 68 78 0 168-68 177-68 4 0 7 2 9 5l12 19c1 2.175 2 4.35 2 6.525 0
+ 4.35-2 7.613-5 9.788l-19 13.05c-92 63.077-116.937 75.308-183 76.128
+-68.267.847-113-73.952-191-73.952z"/></svg></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">b</span><span class="mclose">)</span></span></span></span> bits.</p>
+<p>A naive recursive evaluation would keep a large round guess on every call stack level. The manuscript instead uses interpolation to evaluate a history update without retaining that guess during calls to the preceding history. The guess is kept only when calling for a block state at the start of an epoch.</p>
+<p>That selected call moves immediately to earlier epochs. Consequently a dependency path pays for at most one retained round guess per epoch, rather than once for every step of the history reconstruction.</p>
+<h3 id="Borrow-registers-and-restore-their-contents"><a href="#Borrow-registers-and-restore-their-contents" class="headerlink" title="Borrow registers and restore their contents"></a>Borrow registers and restore their contents</h3><p>The evaluator implements an additive update to one chosen register while restoring every other register, even when the shared pool initially contains arbitrary data. A recursive descendant can therefore borrow registers holding the caller’s inputs or partially accumulated output, provided it restores them before returning.</p>
+<p>Finite-field interpolation supplies this controlled evaluation. The fields and local arithmetic can be generated with polylogarithmic space, and the procedure may enumerate large finite sets because time is not the constrained resource.</p>
+<p>The claimed space accounting becomes</p>
+<div class="digest-equation" tabindex="0" role="group" aria-label="Mathematical equation"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mover accent="true"><mi>O</mi><mo stretchy="true">~</mo></mover><mtext> ⁣</mtext><mrow><mo fence="true">(</mo><mi>b</mi><mo>+</mo><mrow><mo fence="true">(</mo><mn>1</mn><mo>+</mo><mfrac><mi>T</mi><msup><mi>b</mi><mn>2</mn></msup></mfrac><mo fence="true">)</mo></mrow><msqrt><mi>b</mi></msqrt><mo fence="true">)</mo></mrow><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\widetilde O\!\left(
+ b+\left(1+\frac{T}{b^2}\right)\sqrt b
+\right).</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.4em;vertical-align:-0.95em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9433em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span><span class="svg-align" style="width:calc(100% - 0.1667em);margin-left:0.1667em;top:-3.6833em;"><span class="pstrut" style="height:3em;"></span><span style="height:0.26em;"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="0.26em" viewBox="0 0 600 260" preserveAspectRatio="none"><path d="M200 55.538c-77 0-168 73.953-177 73.953-3 0-7
+-2.175-9-5.437L2 97c-1-2-2-4-2-6 0-4 2-7 5-9l20-12C116 12 171 0 207 0c86 0
+ 114 68 191 68 78 0 168-68 177-68 4 0 7 2 9 5l12 19c1 2.175 2 4.35 2 6.525 0
+ 4.35-2 7.613-5 9.788l-19 13.05c-92 63.077-116.937 75.308-183 76.128
+-68.267.847-113-73.952-191-73.952z"/></svg></span></span></span></span></span></span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9811em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="padding-left:0.833em;">b</span></span><span style="top:-2.9411em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.0589em;"><span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">.</span></span></span></span></span></div>
+<p>The first term pays for local block and history storage. The second pays for retained guesses along the epoch dependencies. Its main contribution is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mi mathvariant="normal">/</mi><msup><mi>b</mi><mrow><mn>3</mn><mi mathvariant="normal">/</mi><mn>2</mn></mrow></msup></mrow><annotation encoding="application/x-tex">T/b^{3/2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.138em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord">/</span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3/2</span></span></span></span></span></span></span></span></span></span></span></span>. Balancing that with <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span> gives <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>b</mi><mrow><mn>5</mn><mi mathvariant="normal">/</mi><mn>2</mn></mrow></msup></mrow><annotation encoding="application/x-tex">b^{5/2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.888em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">5/2</span></span></span></span></span></span></span></span></span></span></span></span> of order <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span>, hence</p>
+<div class="digest-equation" tabindex="0" role="group" aria-label="Mathematical equation"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>b</mi><mo>≍</mo><msup><mi>T</mi><mrow><mn>2</mn><mi mathvariant="normal">/</mi><mn>5</mn></mrow></msup><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">b\asymp T^{2/5}.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≍</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.938em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.938em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2/5</span></span></span></span></span></span></span></span></span><span class="mord">.</span></span></span></span></span></div>
+<p>This calculation explains the exponent once the evaluator and dependency claims are available. It is not a proof that two fifths is optimal for every possible simulation strategy.</p>
+<h2 id="7-Scope-limitations-and-open-questions"><a href="#7-Scope-limitations-and-open-questions" class="headerlink" title="7. Scope, limitations, and open questions"></a>7. Scope, limitations, and open questions</h2><p>The theorem’s unrestricted simulation time is essential to its interpretation. The simulator repeatedly enumerates and reconstructs information. Its own time may be enormous, so the result cannot be iterated as though it were a faster simulation with a new small time cap.</p>
+<p>One writable head supplies the block-visit structure. Additional read-only heads are tracked in the short controller, but additional writable tapes change the dependency pattern. The manuscript does not claim the same two-fifths bound for general multitape machines.</p>
+<p>The accessor must work at every coordinate within distance <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> relevant to the capped invocation, including coordinates inspected during proposed local computations. Providing only the symbols visited by the actual unknown run would be a weaker and insufficient interface.</p>
+<p>The final tape is not materialized. A user needing every final cell has a different output requirement and may face an output-size cost absent from the stated decision simulation.</p>
+<p>The paper explains why adjusting its three scales alone does not lower the exponent further. That observation concerns this construction, not a lower bound on all methods. Better space exponents, useful time–space tradeoffs, and extensions to more writable heads remain distinct questions.</p>
+<h2 id="8-Sources-and-further-reading"><a href="#8-Sources-and-further-reading" class="headerlink" title="8. Sources and further reading"></a>8. Sources and further reading</h2><p>Williams gives the modern square-root-space result and the one-tape question. Cook–Mertz and Goldreich explain the shared-storage interpolation background. The earlier tape-simulation papers locate the historical tradeoff problem. The source manuscript below specifies the symbol-access interface, weighted dependency evaluator, and two-fifths calculation.</p>
+<h3 id="Source-manuscripts"><a href="#Source-manuscripts" class="headerlink" title="Source manuscripts"></a>Source manuscripts</h3><ul>
+<li><strong>M1.</strong> OpenAI, <a target="_blank" rel="noopener" href="https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Simulating-One-Tape-Time-in-Two-Fifths-Power-Space-September-25-2026/article.pdf">Simulating One-Tape Time in Two-Fifths-Power Space</a> (September 25, 2026).</li>
+</ul>
+<p>Sources consulted on 9 October 2026 at repository revision <a target="_blank" rel="noopener" href="https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb"><code>fd4aeeb</code></a>. <a href="/downloads/math-digest/family-137.bib">Download the manuscript citations</a>.</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/papers/">Papers</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="http://github.com/hsfzLZH1">Projects</a></li>
+        
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-The-question"><span class="toc-number">1.</span> <span class="toc-text">1. The question</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Background-and-essential-definitions"><span class="toc-number">2.</span> <span class="toc-text">2. Background and essential definitions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Development-history-and-previous-partial-results"><span class="toc-number">3.</span> <span class="toc-text">3. Development history and previous partial results</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-What-the-new-manuscripts-claim"><span class="toc-number">4.</span> <span class="toc-text">4. What the new manuscripts claim</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Why-the-advance-matters"><span class="toc-number">5.</span> <span class="toc-text">5. Why the advance matters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-The-main-idea"><span class="toc-number">6.</span> <span class="toc-text">6. The main idea</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cut-the-tape-where-the-head-crosses-infrequently"><span class="toc-number">6.1.</span> <span class="toc-text">Cut the tape where the head crosses infrequently</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Separate-epochs-from-smaller-rounds"><span class="toc-number">6.2.</span> <span class="toc-text">Separate epochs from smaller rounds</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Borrow-registers-and-restore-their-contents"><span class="toc-number">6.3.</span> <span class="toc-text">Borrow registers and restore their contents</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Scope-limitations-and-open-questions"><span class="toc-number">7.</span> <span class="toc-text">7. Scope, limitations, and open questions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Sources-and-further-reading"><span class="toc-number">8.</span> <span class="toc-text">8. Sources and further reading</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Source-manuscripts"><span class="toc-number">8.1.</span> <span class="toc-text">Source manuscripts</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://hsfzlzh1.github.io/math-digest/family-137/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hsfzlzh1.github.io/math-digest/family-137/&text=One-tape computation: trading unrestricted time for two-fifths-power space"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://hsfzlzh1.github.io/math-digest/family-137/&title=One-tape computation: trading unrestricted time for two-fifths-power space"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://hsfzlzh1.github.io/math-digest/family-137/&is_video=false&description=One-tape computation: trading unrestricted time for two-fifths-power space"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=One-tape computation: trading unrestricted time for two-fifths-power space&body=Check out this article: https://hsfzlzh1.github.io/math-digest/family-137/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://hsfzlzh1.github.io/math-digest/family-137/&title=One-tape computation: trading unrestricted time for two-fifths-power space"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-137/&title=One-tape computation: trading unrestricted time for two-fifths-power space"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-137/&title=One-tape computation: trading unrestricted time for two-fifths-power space"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-137/&title=One-tape computation: trading unrestricted time for two-fifths-power space"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://hsfzlzh1.github.io/math-digest/family-137/&name=One-tape computation: trading unrestricted time for two-fifths-power space&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://hsfzlzh1.github.io/math-digest/family-137/&t=One-tape computation: trading unrestricted time for two-fifths-power space"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2026
+    hsfzLZH1
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/papers/">Papers</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/hsfzLZH1">Projects</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?22c8630d664adbd9658b25d22a3fb1b5";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

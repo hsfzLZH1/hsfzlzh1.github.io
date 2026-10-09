@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="State lower bounds for relation-product languages over growing finite alphabets, covering deterministic simulation and nondeterministic complementation.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Two-way finite automata: exponential costs of determinism and complement">
+<meta property="og:url" content="https://hsfzlzh1.github.io/math-digest/family-129/index.html">
+<meta property="og:site_name" content="hsfzLZH1&#39;s Homepage">
+<meta property="og:description" content="State lower bounds for relation-product languages over growing finite alphabets, covering deterministic simulation and nondeterministic complementation.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-10-09T04:00:00.000Z">
+<meta property="article:modified_time" content="2026-10-09T04:00:00.000Z">
+<meta property="article:author" content="hsfzLZH1">
+<meta property="article:tag" content="Theoretical computer science">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Two-way finite automata: exponential costs of determinism and complement</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 8.1.1"><link rel="stylesheet" href="/css/math-digest.css"><link rel="stylesheet" href="/lib/katex/katex.min.css">
+</head>
+
+<body class="max-width mx-auto px3 ltr math-digest-page">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/papers/">Papers</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/hsfzLZH1">Projects</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/math-digest/family-135/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/math-digest/family-136/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://hsfzlzh1.github.io/math-digest/family-129/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hsfzlzh1.github.io/math-digest/family-129/&text=Two-way finite automata: exponential costs of determinism and complement"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://hsfzlzh1.github.io/math-digest/family-129/&title=Two-way finite automata: exponential costs of determinism and complement"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://hsfzlzh1.github.io/math-digest/family-129/&is_video=false&description=Two-way finite automata: exponential costs of determinism and complement"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Two-way finite automata: exponential costs of determinism and complement&body=Check out this article: https://hsfzlzh1.github.io/math-digest/family-129/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://hsfzlzh1.github.io/math-digest/family-129/&title=Two-way finite automata: exponential costs of determinism and complement"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-129/&title=Two-way finite automata: exponential costs of determinism and complement"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-129/&title=Two-way finite automata: exponential costs of determinism and complement"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-129/&title=Two-way finite automata: exponential costs of determinism and complement"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://hsfzlzh1.github.io/math-digest/family-129/&name=Two-way finite automata: exponential costs of determinism and complement&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://hsfzlzh1.github.io/math-digest/family-129/&t=Two-way finite automata: exponential costs of determinism and complement"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-The-question"><span class="toc-number">1.</span> <span class="toc-text">1. The question</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Background-and-essential-definitions"><span class="toc-number">2.</span> <span class="toc-text">2. Background and essential definitions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Development-history-and-previous-partial-results"><span class="toc-number">3.</span> <span class="toc-text">3. Development history and previous partial results</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-What-the-new-manuscripts-claim"><span class="toc-number">4.</span> <span class="toc-text">4. What the new manuscripts claim</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Complementation-remains-expensive-even-with-nondeterminism"><span class="toc-number">4.1.</span> <span class="toc-text">Complementation remains expensive even with nondeterminism</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deterministic-simulation-has-a-separate-exponential-bound"><span class="toc-number">4.2.</span> <span class="toc-text">Deterministic simulation has a separate exponential bound</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Why-the-advance-matters"><span class="toc-number">5.</span> <span class="toc-text">5. Why the advance matters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-The-main-idea"><span class="toc-number">6.</span> <span class="toc-text">6. The main idea</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Replace-a-computation-segment-by-its-boundary-behavior"><span class="toc-number">6.1.</span> <span class="toc-text">Replace a computation segment by its boundary behavior</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Encode-deterministic-motion-by-matching-diagrams"><span class="toc-number">6.2.</span> <span class="toc-text">Encode deterministic motion by matching diagrams</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Scope-limitations-and-open-questions"><span class="toc-number">7.</span> <span class="toc-text">7. Scope, limitations, and open questions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Sources-and-further-reading"><span class="toc-number">8.</span> <span class="toc-text">8. Sources and further reading</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Source-manuscripts"><span class="toc-number">8.1.</span> <span class="toc-text">Source manuscripts</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Two-way finite automata: exponential costs of determinism and complement
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">hsfzLZH1</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-10-09T04:00:00.000Z" class="dt-published" itemprop="datePublished">2026-10-09</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Math-Digest/">Math Digest</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Theoretical-computer-science/" rel="tag">Theoretical computer science</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <div class="digest-meta"><a href="/math-digest/">← All digests</a><p>Family 129 · Theoretical computer science<br>Importance <strong>3/5</strong> · Provisional editorial rating<br>Sources consulted 2026-10-09</p></div>
+
+<h2 id="1-The-question"><a href="#1-The-question" class="headerlink" title="1. The question"></a>1. The question</h2><p>A finite automaton reads a string while remembering only one of finitely many internal states. Allowing it to reread the input seems powerful: perhaps repeated scans can replace a large amount of internal memory. Allowing nondeterministic choices is another resource: the machine can guess a successful path, and accepts if at least one finite computation succeeds.</p>
+<p>How many states are needed to remove those guesses? And how many are needed to recognize the complementary language, accepting exactly the strings the original machine does not accept?</p>
+<p>For two-way automata, these are distinct questions. A deterministic simulator removes nondeterminism; a complementing machine may remain nondeterministic. The present family claims exponential lower bounds for both tasks, even though the target can move its head freely in both directions.</p>
+<p>The main qualification belongs at the beginning: the witness languages use <strong>finite alphabets that grow with the state parameter</strong>. The results rule out polynomial state bounds whose constants are independent of the alphabet. They do not establish the same lower bound over a single fixed alphabet, nor a separation of general logarithmic-space complexity classes.</p>
+<h2 id="2-Background-and-essential-definitions"><a href="#2-Background-and-essential-definitions" class="headerlink" title="2. Background and essential definitions"></a>2. Background and essential definitions</h2><p>A deterministic finite automaton has at most one next move for each current state and scanned symbol. A nondeterministic automaton can have several. A one-way machine never moves left; a two-way machine can move left, right, or stay in place. Endmarkers bound the input.</p>
+<p>The only mutable information is the finite state and head position. There is no work tape, writable input, extra head, random source, or advice. All states, including initial and accepting states, count toward the size.</p>
+<p>Acceptance means reaching an accepting state in a finite computation. An infinite computation that never accepts does not accept. This convention is important for complementation: merely exchanging accepting and rejecting states does not necessarily handle nonhalting computations correctly.</p>
+<p>The witness language uses binary relations on <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>=</mo><mo stretchy="false">{</mo><mn>1</mn><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><mi>h</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">H=\{1,\ldots,h\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">h</span><span class="mclose">}</span></span></span></span>. A relation <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>⊆</mo><mi>H</mi><mo>×</mo><mi>H</mi></mrow><annotation encoding="application/x-tex">R\subseteq H\times H</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8193em;vertical-align:-0.136em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊆</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span></span> specifies permitted moves between two successive layers. Relations compose in path order:</p>
+<div class="digest-equation" tabindex="0" role="group" aria-label="Mathematical equation"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo stretchy="false">(</mo><mi>a</mi><mo separator="true">,</mo><mi>c</mi><mo stretchy="false">)</mo><mo>∈</mo><mi>A</mi><mi>B</mi><mspace width="1em"/><mo>⟺</mo><mspace width="1em"/><mtext>there exists </mtext><mi>b</mi><mtext> with </mtext><mo stretchy="false">(</mo><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo>∈</mo><mi>A</mi><mtext> and </mtext><mo stretchy="false">(</mo><mi>b</mi><mo separator="true">,</mo><mi>c</mi><mo stretchy="false">)</mo><mo>∈</mo><mi>B</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">(a,c)\in AB
+\quad\Longleftrightarrow\quad
+\text{there exists }b\text{ with }(a,b)\in A
+\text{ and }(b,c)\in B.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">c</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7073em;vertical-align:-0.024em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⟺</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">there exists </span></span><span class="mord mathnormal">b</span><span class="mord text"><span class="mord"> with </span></span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">b</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">A</span><span class="mord text"><span class="mord"> and </span></span><span class="mopen">(</span><span class="mord mathnormal">b</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">c</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord">.</span></span></span></span></span></div>
+<p>Each relation is one alphabet symbol. A word <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mn>1</mn></msub><mo>⋯</mo><msub><mi>R</mi><mi mathvariant="normal">ℓ</mi></msub></mrow><annotation encoding="application/x-tex">R_1\cdots R_\ell</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">ℓ</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is called live when the product is nonempty. Equivalently, there is a path through all its layers, with any starting and ending point allowed. The empty word has the identity relation as its product and is live.</p>
+<p>A small nondeterministic automaton guesses the current point and follows a permitted edge in each successive relation. Its state needs to remember only that point, plus a few control states. Certifying that <em>no</em> such path exists is a different task.</p>
+<h2 id="3-Development-history-and-previous-partial-results"><a href="#3-Development-history-and-previous-partial-results" class="headerlink" title="3. Development history and previous partial results"></a>3. Development history and previous partial results</h2><p>Rabin and Scott, and Shepherdson, established that two-way finite automata recognize the same regular languages as one-way automata. Equal expressive power does not mean equal succinctness: describing a language in one model can require many more states than describing it in another.</p>
+<p>Sakoda and Sipser made this distinction central in their <a target="_blank" rel="noopener" href="https://doi.org/10.1145/800133.804357">1978 study of nondeterminism and two-way automata</a>. Their relation-product family, now called one-way liveness, serves as a fundamental test problem for replacing one-way nondeterminism by two-way determinism.</p>
+<p>Exponential lower bounds were known when the deterministic target’s motion was restricted. Sweeping machines can reverse direction only at the endmarkers; other results restrict the number of reversals. Those restrictions exclude the arbitrary interior reversals allowed here. Against unrestricted deterministic targets, earlier results gave polynomial lower bounds, including the <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2602.24279">quadratic one-way-liveness bound of Adeogun and Kapoutsis</a>.</p>
+<p>Complementation has its own history. Vardi gave an <a target="_blank" rel="noopener" href="https://doi.org/10.1016/0020-0190(89)90205-6">exponential-state construction</a> for complementing a two-way nondeterministic automaton by a one-way nondeterministic one. Kapoutsis proved exponential lower bounds when the complementing target was sweeping. The new M1 claims a lower bound even when that target has unrestricted two-way motion.</p>
+<p>Deterministic two-way complementation behaves better: <a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.ic.2007.01.008">Geffert, Mereghetti, and Pighizzini</a> obtained a linear state overhead, including the necessary treatment of nonaccepting loops. Recent <a target="_blank" rel="noopener" href="https://doi.org/10.4230/LIPIcs.STACS.2026.48">1-limited-automaton work</a> permits limited rewriting of input cells, a resource absent from the read-only model here. These results concern different combinations of memory and motion and should not be conflated.</p>
+<h2 id="4-What-the-new-manuscripts-claim"><a href="#4-What-the-new-manuscripts-claim" class="headerlink" title="4. What the new manuscripts claim"></a>4. What the new manuscripts claim</h2><h3 id="Complementation-remains-expensive-even-with-nondeterminism"><a href="#Complementation-remains-expensive-even-with-nondeterminism" class="headerlink" title="Complementation remains expensive even with nondeterminism"></a>Complementation remains expensive even with nondeterminism</h3><p>M1 constructs, for every <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">n\ge4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">4</span></span></span></span>, an <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>-state two-way nondeterministic automaton recognizing liveness on <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mi>n</mi><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">h=n-2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">h</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span> points. Every two-way nondeterministic automaton recognizing its complement is claimed to require at least</p>
+<div class="digest-equation" tabindex="0" role="group" aria-label="Mathematical equation"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mtext> </mtext><msup><mn>2</mn><mrow><mo stretchy="false">⌊</mo><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mn>4</mn><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mn>127</mn><mo stretchy="false">⌋</mo></mrow></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\frac12\,2^{\lfloor(n-4)/127\rfloor}-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.0074em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.938em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">⌊(</span><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">4</span><span class="mclose mtight">)</span><span class="mord mtight">/127</span><span class="mclose mtight">⌋</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></span></div>
+<p>states. The lower bound grows exponentially for sufficiently large <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>.</p>
+<p>The alphabet consists of all binary relations on <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">n-2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span> points and has size <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mrow><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mn>2</mn><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow></msup></mrow><annotation encoding="application/x-tex">2^{(n-2)^2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9869em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9869em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">2</span><span class="mclose mtight"><span class="mclose mtight">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913em;"><span style="top:-2.931em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>. This is a state-complexity result, not an exponential lower bound in the total transition-table length.</p>
+<h3 id="Deterministic-simulation-has-a-separate-exponential-bound"><a href="#Deterministic-simulation-has-a-separate-exponential-bound" class="headerlink" title="Deterministic simulation has a separate exponential bound"></a>Deterministic simulation has a separate exponential bound</h3><p>M2 gives a one-way nondeterministic source with <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>+</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">h+3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">h</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">3</span></span></span></span> states. Every equivalent two-way deterministic automaton with <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">s</span></span></span></span> states satisfies</p>
+<div class="digest-equation" tabindex="0" role="group" aria-label="Mathematical equation"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>4</mn><mo stretchy="false">(</mo><mi>s</mi><mo>+</mo><mn>2</mn><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>≥</mo><msup><mn>2</mn><mrow><mo stretchy="false">⌊</mo><mo stretchy="false">(</mo><mi>h</mi><mo>−</mo><mn>2</mn><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mn>31</mn><mo stretchy="false">⌋</mo></mrow></msup><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">4(s+2)^2\ge2^{\lfloor(h-2)/31\rfloor}.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">4</span><span class="mopen">(</span><span class="mord mathnormal">s</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1141em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.938em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.938em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">⌊(</span><span class="mord mathnormal mtight">h</span><span class="mbin mtight">−</span><span class="mord mtight">2</span><span class="mclose mtight">)</span><span class="mord mtight">/31</span><span class="mclose mtight">⌋</span></span></span></span></span></span></span></span></span><span class="mord">.</span></span></span></span></span></div>
+<p>This again forces <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><msup><mn>2</mn><mrow><mi mathvariant="normal">Ω</mi><mo stretchy="false">(</mo><mi>h</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">s=2^{\Omega(h)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">s</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.888em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">Ω</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">h</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span>. A slightly improved additive constant is stated when acceptance in the initial configuration counts immediately. The displayed bound covers both conventions considered in the paper.</p>
+<p>The target may use partial transition rules, stay moves, arbitrary reversals, and nonaccepting infinite computations. There is no bound on input length or on the time taken by a successful computation.</p>
+<p>M1 also implies a deterministic lower bound through the linear-overhead complementation theorem: a small deterministic recognizer would have a small deterministic complement, contradicting M1. M2 supplies an independent diagram argument with a larger exponential rate. The two manuscripts therefore overlap in consequence but prove different primary statements.</p>
+<h2 id="5-Why-the-advance-matters"><a href="#5-Why-the-advance-matters" class="headerlink" title="5. Why the advance matters"></a>5. Why the advance matters</h2><p><strong>Provisional importance: 3&#x2F;5.</strong> These claims address foundational questions about the relative succinctness of finite-state models. They would show that unrestricted rescanning does not always compensate for nondeterministic choices when size is measured by states uniformly over finite alphabets.</p>
+<p>The complementation claim is particularly informative because it leaves nondeterminism available to the target. The difficulty is not solely making one unique computation; it is representing the absence of every successful path with limited finite control.</p>
+<p>The direct deterministic result also goes beyond lower bounds for sweeping or reversal-limited machines. It allows the target to use the full two-way read-only model, which is precisely where earlier restricted-motion arguments could not automatically apply.</p>
+<p>The rating reflects a substantial contribution within automata theory, tempered by the growing-alphabet scope. The enormous alphabet carries significant information in each symbol, so describing the result only as an unrestricted exponential separation would conceal an essential feature of its parameterization.</p>
+<h2 id="6-The-main-idea"><a href="#6-The-main-idea" class="headerlink" title="6. The main idea"></a>6. The main idea</h2><h3 id="Replace-a-computation-segment-by-its-boundary-behavior"><a href="#Replace-a-computation-segment-by-its-boundary-behavior" class="headerlink" title="Replace a computation segment by its boundary behavior"></a>Replace a computation segment by its boundary behavior</h3><p>When a head moves back and forth through an input segment, its internal history can be complicated. What matters to neighboring segments is how a computation can enter and leave through the two boundaries.</p>
+<p>M1 records four relations: left-to-right traversals, right-to-left traversals, and returns to the same side. Joining two input segments composes these path diagrams. The operation is associative, so a whole word has a diagram obtained by multiplying its symbol diagrams.</p>
+<p>Adding possible paths can only add accepting computations. By contrast, adding pairs to a relation product makes product emptiness less likely. Carefully chosen context letters test individual relation pairs, forcing a complementing automaton’s diagram representation to preserve this opposition between path availability and absence.</p>
+<p>The algebraic argument studies recurrent boundary classes inside idempotent diagrams, where idempotent means that composing a diagram with itself leaves it unchanged. Adding relation information forces some recurrent structure to disappear. The manuscript bounds how that loss can move through contexts and how it accumulates along nested restrictions.</p>
+<p>An amplification construction creates many relation additions sharing one budget of available boundary structure. Each addition demands further loss in a smaller instance. Comparing total available structure with the repeated demands yields an exponential recurrence.</p>
+<h3 id="Encode-deterministic-motion-by-matching-diagrams"><a href="#Encode-deterministic-motion-by-matching-diagrams" class="headerlink" title="Encode deterministic motion by matching diagrams"></a>Encode deterministic motion by matching diagrams</h3><p>M2 uses a different representation. A matching diagram pairs ports on the two sides of a segment. Multiplication joins adjacent boundaries and follows the resulting paths, discarding closed components that do not reach an outside port.</p>
+<p>Determinism allows the relevant accepting computation structure to be represented through a tree traversal. Auxiliary leaves for unused transition possibilities ensure that each cell’s diagram depends only on its own symbol, not on neighboring letters. This locality is necessary before symbol diagrams can be composed consistently.</p>
+<p>For an <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">s</span></span></span></span>-state target, the manuscript constructs diagrams with at most <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo stretchy="false">(</mo><mi>s</mi><mo>+</mo><mn>2</mn><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">4(s+2)^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">4</span><span class="mopen">(</span><span class="mord mathnormal">s</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> ports on each side. Contexts that test individual relation pairs then force the generated diagram system to map onto the full relation-product system while preserving composition.</p>
+<p>The remaining lower bound is algebraic. The rank of a matching diagram counts pairs connecting opposite sides. A sequence of relation additions forces repeated rank losses inside smaller idempotent regions. A shared support bound limits how much rank can be lost at once; induction makes the required number of ports double after a fixed increase in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi></mrow><annotation encoding="application/x-tex">h</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">h</span></span></span></span>.</p>
+<p>The diagrams are analytical encodings, not extra memory granted to the automaton. Their purpose is to expose a resource that every small target would have to possess, then show that too many such resources are required.</p>
+<h2 id="7-Scope-limitations-and-open-questions"><a href="#7-Scope-limitations-and-open-questions" class="headerlink" title="7. Scope, limitations, and open questions"></a>7. Scope, limitations, and open questions</h2><p>The alphabet size grows as <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><msup><mi>h</mi><mn>2</mn></msup></msup></mrow><annotation encoding="application/x-tex">2^{h^2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9869em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9869em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">h</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913em;"><span style="top:-2.931em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>. A theorem ruling out a polynomial bound independent of the alphabet does not by itself rule out a polynomial bound with constants depending on a fixed alphabet. Encoding the relation symbols into binary can alter state costs, so a fixed-alphabet conclusion requires a separate argument.</p>
+<p>Likewise, counting states differs from counting the full transition table. A machine with few states and a huge alphabet can have an enormous explicit description. The claimed exponential lower bounds are parameterized by states in the source model.</p>
+<p>The results compare finite-state devices without a work tape. They do not separate deterministic and nondeterministic logarithmic-space computation on general encoded inputs. Input length and computation time are unrestricted within the finite-automaton model.</p>
+<p>The fixed-alphabet frontier, sharper quantitative tradeoffs involving alphabet size, and other combinations of writable memory and head motion remain distinct questions. The digest reports the two stated diagram lower bounds without auditing their algebraic proofs.</p>
+<h2 id="8-Sources-and-further-reading"><a href="#8-Sources-and-further-reading" class="headerlink" title="8. Sources and further reading"></a>8. Sources and further reading</h2><p>Sakoda–Sipser supplies the original succinctness problem and witness family. The linked quadratic lower bound, deterministic complementation theorem, and limited-rewriting result locate the new claims among earlier partial solutions. M1 below concerns nondeterministic complementation; M2 concerns deterministic simulation directly.</p>
+<h3 id="Source-manuscripts"><a href="#Source-manuscripts" class="headerlink" title="Source manuscripts"></a>Source manuscripts</h3><ul>
+<li><strong>M1.</strong> OpenAI, <a target="_blank" rel="noopener" href="https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/An-exponential-state-lower-bound-for-two-way-nondeterministic-complementation-September-25-2026/paper.pdf">An exponential state lower bound for two-way nondeterministic complementation</a> (September 25, 2026).</li>
+<li><strong>M2.</strong> OpenAI, <a target="_blank" rel="noopener" href="https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/main.pdf">An exponential two-way deterministic state lower bound for one-way liveness</a> (September 25, 2026).</li>
+</ul>
+<p>Sources consulted on 9 October 2026 at repository revision <a target="_blank" rel="noopener" href="https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb"><code>fd4aeeb</code></a>. <a href="/downloads/math-digest/family-129.bib">Download the manuscript citations</a>.</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/papers/">Papers</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="http://github.com/hsfzLZH1">Projects</a></li>
+        
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-The-question"><span class="toc-number">1.</span> <span class="toc-text">1. The question</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Background-and-essential-definitions"><span class="toc-number">2.</span> <span class="toc-text">2. Background and essential definitions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Development-history-and-previous-partial-results"><span class="toc-number">3.</span> <span class="toc-text">3. Development history and previous partial results</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-What-the-new-manuscripts-claim"><span class="toc-number">4.</span> <span class="toc-text">4. What the new manuscripts claim</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Complementation-remains-expensive-even-with-nondeterminism"><span class="toc-number">4.1.</span> <span class="toc-text">Complementation remains expensive even with nondeterminism</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deterministic-simulation-has-a-separate-exponential-bound"><span class="toc-number">4.2.</span> <span class="toc-text">Deterministic simulation has a separate exponential bound</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Why-the-advance-matters"><span class="toc-number">5.</span> <span class="toc-text">5. Why the advance matters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-The-main-idea"><span class="toc-number">6.</span> <span class="toc-text">6. The main idea</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Replace-a-computation-segment-by-its-boundary-behavior"><span class="toc-number">6.1.</span> <span class="toc-text">Replace a computation segment by its boundary behavior</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Encode-deterministic-motion-by-matching-diagrams"><span class="toc-number">6.2.</span> <span class="toc-text">Encode deterministic motion by matching diagrams</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Scope-limitations-and-open-questions"><span class="toc-number">7.</span> <span class="toc-text">7. Scope, limitations, and open questions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Sources-and-further-reading"><span class="toc-number">8.</span> <span class="toc-text">8. Sources and further reading</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Source-manuscripts"><span class="toc-number">8.1.</span> <span class="toc-text">Source manuscripts</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://hsfzlzh1.github.io/math-digest/family-129/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hsfzlzh1.github.io/math-digest/family-129/&text=Two-way finite automata: exponential costs of determinism and complement"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://hsfzlzh1.github.io/math-digest/family-129/&title=Two-way finite automata: exponential costs of determinism and complement"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://hsfzlzh1.github.io/math-digest/family-129/&is_video=false&description=Two-way finite automata: exponential costs of determinism and complement"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Two-way finite automata: exponential costs of determinism and complement&body=Check out this article: https://hsfzlzh1.github.io/math-digest/family-129/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://hsfzlzh1.github.io/math-digest/family-129/&title=Two-way finite automata: exponential costs of determinism and complement"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-129/&title=Two-way finite automata: exponential costs of determinism and complement"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-129/&title=Two-way finite automata: exponential costs of determinism and complement"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-129/&title=Two-way finite automata: exponential costs of determinism and complement"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://hsfzlzh1.github.io/math-digest/family-129/&name=Two-way finite automata: exponential costs of determinism and complement&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://hsfzlzh1.github.io/math-digest/family-129/&t=Two-way finite automata: exponential costs of determinism and complement"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2026
+    hsfzLZH1
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/papers/">Papers</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/hsfzLZH1">Projects</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?22c8630d664adbd9658b25d22a3fb1b5";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
