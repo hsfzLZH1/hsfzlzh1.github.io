@@ -4,8 +4,19 @@
 .digest-meta { margin: 1.25rem 0 2rem; padding-left: 1rem; border-left: 3px solid #2bbc8a; color: #666; font-size: .875rem; }
 .digest-meta p { margin-bottom: 0; }
 .digest-meta strong { color: #383838; }
-.digest-count, .digest-subject { color: #666; font-size: .8rem; }
-.digest-subject { display: block; margin-top: .35rem; }
+.digest-count, .digest-category-count { color: #666; font-size: .8rem; }
+.digest-category { margin: 1rem 0; border: 1px solid #ddd; border-radius: 4px; }
+.digest-category > summary { padding: 1rem; cursor: pointer; line-height: 1.5; font-weight: 600; }
+.digest-category > summary::marker { color: #2bbc8a; }
+.digest-category > summary:hover { background: #f6f8f7; }
+.digest-category > summary:focus-visible, .digest-sort select:focus-visible { outline: 2px solid #2bbc8a; outline-offset: 3px; }
+.digest-category[open] > summary { border-bottom: 1px solid #ddd; }
+.digest-category-count { display: inline-block; margin-left: .5rem; font-weight: normal; white-space: nowrap; }
+.digest-category-content { padding: 0 .5rem .5rem; }
+.digest-sort { margin: .8rem .3rem; display: flex; justify-content: flex-end; }
+.digest-sort[hidden] { display: none; }
+.digest-sort label { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem; max-width: 100%; font-size: .8rem; }
+.digest-sort select { max-width: 100%; min-width: 0; padding: .45rem .55rem; border: 1px solid #aaa; border-radius: 3px; background: #fff; color: #383838; font: inherit; }
 .math-digest-index table { width: 100%; table-layout: fixed; border-collapse: collapse; }
 .math-digest-index th, .math-digest-index td { padding: .9rem .5rem; vertical-align: top; text-align: left; overflow-wrap: anywhere; }
 .math-digest-index th { white-space: nowrap; }
@@ -24,6 +35,8 @@
 @media (max-width: 480px) {
   .math-digest-page .posttitle { font-size: 1.5rem; line-height: 1.4; }
   .math-digest-index { font-size: .875rem; }
+  .digest-category > summary { padding: .8rem .6rem; }
+  .digest-category-content { padding: 0 .25rem .25rem; }
   .math-digest-index th, .math-digest-index td { padding: .75rem .3rem; }
   .math-digest-index th { font-size: .75rem; }
   .math-digest-index th:first-child { width: 3.2rem; }
