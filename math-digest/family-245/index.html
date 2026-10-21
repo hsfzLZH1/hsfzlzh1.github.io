@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="A claimed proof of the β-Barendregt–Geuvers–Klop conjecture for arbitrary pure type systems, including nonfunctional specifications and reductions inside annotations.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="If every legal expression can normalize, every reduction strategy terminates">
+<meta property="og:url" content="https://hsfzlzh1.github.io/math-digest/family-245/index.html">
+<meta property="og:site_name" content="hsfzLZH1&#39;s Homepage">
+<meta property="og:description" content="A claimed proof of the β-Barendregt–Geuvers–Klop conjecture for arbitrary pure type systems, including nonfunctional specifications and reductions inside annotations.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-10-21T10:00:00.000Z">
+<meta property="article:modified_time" content="2026-10-21T10:00:00.000Z">
+<meta property="article:author" content="hsfzLZH1">
+<meta property="article:tag" content="Mathematical logic">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>If every legal expression can normalize, every reduction strategy terminates</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 8.1.1"><link rel="stylesheet" href="/css/math-digest.css"><link rel="stylesheet" href="/lib/katex/katex.min.css">
+</head>
+
+<body class="max-width mx-auto px3 ltr math-digest-page">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/papers/">Papers</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/hsfzLZH1">Projects</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/math-digest/family-244/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/math-digest/family-241/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://hsfzlzh1.github.io/math-digest/family-245/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hsfzlzh1.github.io/math-digest/family-245/&text=If every legal expression can normalize, every reduction strategy terminates"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://hsfzlzh1.github.io/math-digest/family-245/&title=If every legal expression can normalize, every reduction strategy terminates"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://hsfzlzh1.github.io/math-digest/family-245/&is_video=false&description=If every legal expression can normalize, every reduction strategy terminates"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=If every legal expression can normalize, every reduction strategy terminates&body=Check out this article: https://hsfzlzh1.github.io/math-digest/family-245/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://hsfzlzh1.github.io/math-digest/family-245/&title=If every legal expression can normalize, every reduction strategy terminates"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-245/&title=If every legal expression can normalize, every reduction strategy terminates"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-245/&title=If every legal expression can normalize, every reduction strategy terminates"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-245/&title=If every legal expression can normalize, every reduction strategy terminates"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://hsfzlzh1.github.io/math-digest/family-245/&name=If every legal expression can normalize, every reduction strategy terminates&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://hsfzlzh1.github.io/math-digest/family-245/&t=If every legal expression can normalize, every reduction strategy terminates"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-The-question"><span class="toc-number">1.</span> <span class="toc-text">1. The question</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Background-and-essential-definitions"><span class="toc-number">2.</span> <span class="toc-text">2. Background and essential definitions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Beta-reduction"><span class="toc-number">2.1.</span> <span class="toc-text">Beta reduction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pure-type-systems"><span class="toc-number">2.2.</span> <span class="toc-text">Pure type systems</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Full-annotated-reduction"><span class="toc-number">2.3.</span> <span class="toc-text">Full annotated reduction</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Development-history-and-previous-partial-results"><span class="toc-number">3.</span> <span class="toc-text">3. Development history and previous partial results</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-What-the-new-manuscripts-claim"><span class="toc-number">4.</span> <span class="toc-text">4. What the new manuscripts claim</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Why-the-advance-matters"><span class="toc-number">5.</span> <span class="toc-text">5. Why the advance matters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-The-main-idea"><span class="toc-number">6.</span> <span class="toc-text">6. The main idea</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Track-every-possible-sort"><span class="toc-number">6.1.</span> <span class="toc-text">Track every possible sort</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Build-semantic-sets-of-terminating-terms"><span class="toc-number">6.2.</span> <span class="toc-text">Build semantic sets of terminating terms</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Handle-circular-dependencies-with-observations"><span class="toc-number">6.3.</span> <span class="toc-text">Handle circular dependencies with observations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-forbidden-configuration-would-violate-weak-normalization"><span class="toc-number">6.4.</span> <span class="toc-text">A forbidden configuration would violate weak normalization</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Scope-limitations-and-open-questions"><span class="toc-number">7.</span> <span class="toc-text">7. Scope, limitations, and open questions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Sources-and-further-reading"><span class="toc-number">8.</span> <span class="toc-text">8. Sources and further reading</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Source-manuscripts"><span class="toc-number">8.1.</span> <span class="toc-text">Source manuscripts</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        If every legal expression can normalize, every reduction strategy terminates
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">hsfzLZH1</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-10-21T10:00:00.000Z" class="dt-published" itemprop="datePublished">2026-10-21</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Math-Digest/">Math Digest</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Mathematical-logic/" rel="tag">Mathematical logic</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <div class="digest-meta"><a href="/math-digest/">← All digests</a><p>Family 245 · Mathematical logic<br>Importance <strong>4/5</strong> · Provisional editorial rating<br>Sources consulted 2026-10-21</p></div>
+
+<h2 id="1-The-question"><a href="#1-The-question" class="headerlink" title="1. The question"></a>1. The question</h2><p>A symbolic expression can often be simplified in several orders. One strategy may reach a final answer, while another keeps reducing a subexpression forever. Finding one terminating route is therefore weaker than proving that every route terminates.</p>
+<p>Type systems can rule out such behavior. The question in family 245 is whether, for the broad framework of pure type systems, a system-wide guarantee of some terminating route already forces termination under every sequence of beta reductions.</p>
+<p>The manuscript, dated 25 September 2026, claims that it does. It resolves the beta-reduction version of the Barendregt–Geuvers–Klop conjecture for arbitrary pure type specifications, without requiring unique sort assignments or product rules. Reductions inside types and annotations are included.</p>
+<p>The universal hypothesis is essential: <strong>every legal expression in every valid context</strong> must have a normal form. The theorem is not a claim that an individual expression with one terminating reduction has no infinite reduction.</p>
+<h2 id="2-Background-and-essential-definitions"><a href="#2-Background-and-essential-definitions" class="headerlink" title="2. Background and essential definitions"></a>2. Background and essential definitions</h2><h3 id="Beta-reduction"><a href="#Beta-reduction" class="headerlink" title="Beta reduction"></a>Beta reduction</h3><p>In lambda notation, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mi>x</mi><mi mathvariant="normal">.</mi><mi>M</mi></mrow><annotation encoding="application/x-tex">\lambda x.M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">λ</span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> is a function with input <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> and body <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span>. Applying it to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> permits the beta step</p>
+<div class="digest-equation" tabindex="0" role="group" aria-label="Mathematical equation"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo stretchy="false">(</mo><mi>λ</mi><mi>x</mi><mi mathvariant="normal">.</mi><mi>M</mi><mo stretchy="false">)</mo><mi>N</mi><msub><mo>⟶</mo><mi>β</mi></msub><mi>M</mi><mo stretchy="false">[</mo><mi>x</mi><mo>:</mo><mo>=</mo><mi>N</mi><mo stretchy="false">]</mo><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex"> (\lambda x.M)N\longrightarrow_\beta M[x:=N],</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mopen">(</span><span class="mord mathnormal">λ</span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">)</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mrel">⟶</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05278em;">β</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mopen">[</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mclose">]</span><span class="mpunct">,</span></span></span></span></span></div>
+<p>where substitution replaces free occurrences of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> while avoiding accidental variable capture.</p>
+<p>A normal form has no remaining beta redex, or reducible application, anywhere. Weak normalization means that at least one finite sequence reaches a normal form. Strong normalization means that no infinite sequence of beta reductions begins at the expression.</p>
+<p>The distinction is visible in the untyped calculus. Let</p>
+<div class="digest-equation" tabindex="0" role="group" aria-label="Mathematical equation"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="normal">Ω</mi><mo>=</mo><mo stretchy="false">(</mo><mi>λ</mi><mi>z</mi><mi mathvariant="normal">.</mi><mi>z</mi><mi>z</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>λ</mi><mi>z</mi><mi mathvariant="normal">.</mi><mi>z</mi><mi>z</mi><mo stretchy="false">)</mo><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex"> \Omega=(\lambda z.zz)(\lambda z.zz).</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Ω</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">λ</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.04398em;">zz</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord mathnormal">λ</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.04398em;">zz</span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></div>
+<p>It reduces to itself. The raw expression <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>λ</mi><mi>x</mi><mi mathvariant="normal">.</mi><mi>y</mi><mo stretchy="false">)</mo><mi mathvariant="normal">Ω</mi></mrow><annotation encoding="application/x-tex">(\lambda x.y)\Omega</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">λ</span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mord">Ω</span></span></span></span> can immediately reduce to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>, but a strategy that keeps reducing its argument runs forever. This is an illustration in untyped syntax, not a counterexample to the manuscript’s system-wide typed theorem.</p>
+<h3 id="Pure-type-systems"><a href="#Pure-type-systems" class="headerlink" title="Pure type systems"></a>Pure type systems</h3><p>A pure type system, or PTS, is specified by three sets of data:</p>
+<div class="digest-equation" tabindex="0" role="group" aria-label="Mathematical equation"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="script">P</mi><mo>=</mo><mo stretchy="false">(</mo><mi>S</mi><mo separator="true">,</mo><mi mathvariant="script">A</mi><mo separator="true">,</mo><mi mathvariant="script">R</mi><mo stretchy="false">)</mo><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex"> \mathcal P=(S,\mathcal A,\mathcal R).</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal" style="margin-right:0.08222em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathcal">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathcal">R</span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></div>
+<p>The set <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> contains sorts, the classifications of types. An axiom <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>s</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>s</mi><mn>2</mn></msub><mo stretchy="false">)</mo><mo>∈</mo><mi mathvariant="script">A</mi></mrow><annotation encoding="application/x-tex">(s_1,s_2)\in\mathcal A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal">A</span></span></span></span> permits the typing judgment <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mn>1</mn></msub><mo>:</mo><msub><mi>s</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">s_1:s_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>. A product rule <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>s</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>s</mi><mn>2</mn></msub><mo separator="true">,</mo><msub><mi>s</mi><mn>3</mn></msub><mo stretchy="false">)</mo><mo>∈</mo><mi mathvariant="script">R</mi></mrow><annotation encoding="application/x-tex">(s_1,s_2,s_3)\in\mathcal R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal">R</span></span></span></span> permits a dependent function type with domain sort <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">s_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, codomain sort <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">s_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, and resulting sort <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mn>3</mn></msub></mrow><annotation encoding="application/x-tex">s_3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.</p>
+<p>The dependent product</p>
+<div class="digest-equation" tabindex="0" role="group" aria-label="Mathematical equation"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="normal">Π</mi><mi>x</mi><mo>:</mo><mi>A</mi><mi mathvariant="normal">.</mi><mi>B</mi></mrow><annotation encoding="application/x-tex"> \Pi x:A.B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Π</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span></span></div>
+<p>is the type of functions whose output type <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> may depend on the input <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>. When it does not depend on <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>, this is an ordinary function type <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A\to B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>.</p>
+<p>Expressions include variables, sorts, applications, annotated abstractions <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mi>x</mi><mo>:</mo><mi>A</mi><mi mathvariant="normal">.</mi><mi>M</mi></mrow><annotation encoding="application/x-tex">\lambda x:A.M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">λ</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span>, and dependent products. A context <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Γ</mi></mrow><annotation encoding="application/x-tex">\Gamma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Γ</span></span></span></span> is a finite list of variable declarations. The judgment <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Γ</mi><mo>⊢</mo><mi>M</mi><mo>:</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">\Gamma\vdash M:A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">Γ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊢</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> says that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> has type <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> under those declarations.</p>
+<p>A specification is functional when the relevant sort outputs are uniquely determined. The new theorem allows nonfunctional specifications: one sort or pair of product sorts may admit more than one output classification.</p>
+<h3 id="Full-annotated-reduction"><a href="#Full-annotated-reduction" class="headerlink" title="Full annotated reduction"></a>Full annotated reduction</h3><p>The manuscript reduces inside annotations as well as computational bodies. If <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><msub><mo>→</mo><mi>β</mi></msub><msup><mi>A</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup></mrow><annotation encoding="application/x-tex">A\to_\beta A&#x27;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mrel">→</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05278em;">β</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7519em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span>, then</p>
+<div class="digest-equation" tabindex="0" role="group" aria-label="Mathematical equation"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>λ</mi><mi>x</mi><mo>:</mo><mi>A</mi><mi mathvariant="normal">.</mi><mi>M</mi><msub><mo>⟶</mo><mi>β</mi></msub><mi>λ</mi><mi>x</mi><mo>:</mo><msup><mi>A</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mi mathvariant="normal">.</mi><mi>M</mi></mrow><annotation encoding="application/x-tex"> \lambda x:A.M\longrightarrow_\beta\lambda x:A&#x27;.M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">λ</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord mathnormal">A</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mrel">⟶</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05278em;">β</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">λ</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8019em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8019em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span></span></div>
+<p>is an allowed step. Both components of a dependent product can also reduce.</p>
+<p>A legal expression is either the subject or expected type in a derivable judgment. Valid context declarations are included through their own typing requirements. Reduction acts on the expression itself; it does not unfold declarations in the external context as if they were definitions.</p>
+<h2 id="3-Development-history-and-previous-partial-results"><a href="#3-Development-history-and-previous-partial-results" class="headerlink" title="3. Development history and previous partial results"></a>3. Development history and previous partial results</h2><p>Normalization proofs are central to typed lambda calculus and proof theory. Under the propositions-as-types viewpoint, a term can represent a proof, and reduction simplifies that proof. Strong normalization ensures that arbitrary reduction choices cannot lead to an infinite simplification process.</p>
+<p>Geuvers’s 1993 thesis formulated the system-wide Barendregt–Geuvers–Klop conjecture for beta reduction and for beta-eta reduction. The manuscript addresses the beta version only.</p>
+<p>One major line of earlier work translated terms so that an infinite reduction in the source would contradict weak normalization of a translated term. The translation must preserve typing, and that requirement depends on which product rules the source system actually provides.</p>
+<p>Sørensen’s continuation-passing method established the implication for generalized nondependent systems with specific cleanliness and negatability conditions. Barthe, Hatcliff and Sørensen developed a uniform treatment of a class of nondependent pure type systems. Mull’s later thesis weakened some restrictions within the nondependent tiered setting, where sorts form a finite axiom chain and products inherit the codomain’s sort.</p>
+<p>Structural transformations supplied another approach. Roux and van Doorn proved preservation results for disjoint sums and certain added product rules. Mull showed that the normalization implication transfers from an irrelevance reduction to the original tiered system. These are valuable reductions, but retain hypotheses on the source specification or on the transformed system.</p>
+<p>Annotations introduce an additional problem. Barthe and Coquand showed that erasing lambda-domain annotations can identify terms that are not beta-convertible in nonnormalizing systems. One cannot simply discard annotations, prove a statement about the remaining bodies and assume that it controls every reduction in the original calculus.</p>
+<p>The new paper claims a structural argument that does not require the products used by those translations. It tracks all possible sort assignments and retains type annotations throughout, including in the auxiliary labelled calculus used to exclude a problematic configuration.</p>
+<h2 id="4-What-the-new-manuscripts-claim"><a href="#4-What-the-new-manuscripts-claim" class="headerlink" title="4. What the new manuscripts claim"></a>4. What the new manuscripts claim</h2><p>Write <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">WN</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi mathvariant="script">P</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{WN}(\mathcal P)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mord mathrm">WN</span></span><span class="mopen">(</span><span class="mord mathcal" style="margin-right:0.08222em;">P</span><span class="mclose">)</span></span></span></span> to mean that every legal expression in every valid context is weakly beta-normalizing. Write <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">SN</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi mathvariant="script">P</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{SN}(\mathcal P)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mord mathrm">SN</span></span><span class="mopen">(</span><span class="mord mathcal" style="margin-right:0.08222em;">P</span><span class="mclose">)</span></span></span></span> for the corresponding statement with strong beta-normalization. For every pure type system <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">P</mi></mrow><annotation encoding="application/x-tex">\mathcal P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal" style="margin-right:0.08222em;">P</span></span></span></span>, the manuscript asserts</p>
+<div class="digest-equation" tabindex="0" role="group" aria-label="Mathematical equation"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="normal">WN</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi mathvariant="script">P</mi><mo stretchy="false">)</mo><mspace width="1em"/><mo>⟹</mo><mspace width="1em"/><mi mathvariant="normal">SN</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi mathvariant="script">P</mi><mo stretchy="false">)</mo><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\operatorname{WN}(\mathcal P)\quad\Longrightarrow\quad\operatorname{SN}(\mathcal P).</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mord mathrm">WN</span></span><span class="mopen">(</span><span class="mord mathcal" style="margin-right:0.08222em;">P</span><span class="mclose">)</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⟹</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mord mathrm">SN</span></span><span class="mopen">(</span><span class="mord mathcal" style="margin-right:0.08222em;">P</span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></div>
+<p>The statement includes open expressions, meaning expressions with free variables declared in the context. It includes types and the reductions inside their annotations. The axiom and product relations need not be functional, and the overall specification need not have a finite hierarchy of sorts.</p>
+<p>A finite derivation uses only finitely many sorts and rules. The proof exploits this to reduce the relevant argument to finite pieces of a possibly infinite specification. It does not impose finiteness as an extra hypothesis on the theorem.</p>
+<p>The result concerns beta reduction. Eta reduction, which simplifies a function that merely applies another function to its argument, is not included in the claim. Nor does the theorem automatically apply after adding arbitrary rewrite rules, recursion operators or extra computational equations.</p>
+<p>The paper’s proof may use weak normalization of newly constructed legal expressions other than the expression whose strong normalization is under consideration. This explains why replacing the system-wide premise by a premise about one term would change the theorem fundamentally.</p>
+<h2 id="5-Why-the-advance-matters"><a href="#5-Why-the-advance-matters" class="headerlink" title="5. Why the advance matters"></a>5. Why the advance matters</h2><p><strong>Importance: 4&#x2F;5, provisional.</strong> The theorem would settle a longstanding normalization conjecture across the general PTS framework, including dependent and nonfunctional cases outside earlier translation methods.</p>
+<p>Its practical proof-theoretic consequence is a simplification of what must be established about a system. If one proves that every legal expression has some beta-normal form, the claimed theorem supplies termination under all beta-reduction choices.</p>
+<p>That is particularly relevant when types themselves compute. A body may already look like a result while reductions remain possible in its annotations. The full-syntax convention ensures that the conclusion controls those reductions too.</p>
+<p>The score reflects a broad foundational result within type theory. It does not claim that a weak-normalization proof is always easy, that every PTS satisfies the premise, or that normalization becomes efficient. Systems permitting nonterminating legal expressions remain outside the hypothesis.</p>
+<h2 id="6-The-main-idea"><a href="#6-The-main-idea" class="headerlink" title="6. The main idea"></a>6. The main idea</h2><h3 id="Track-every-possible-sort"><a href="#Track-every-possible-sort" class="headerlink" title="Track every possible sort"></a>Track every possible sort</h3><p>Under weak normalization and confluence, each legal expression has a unique beta-normal form up to bound-variable renaming. For a normal type, the manuscript records its sort profile: the set of all sorts at which it can be typed.</p>
+<p>A profile is needed because a nonfunctional specification does not provide a unique sort. The proof studies how these sets behave under substitution, rather than relying on uniqueness of typing that is unavailable in the stated generality.</p>
+<p>The finite profiles form a dependency graph. Dependent products introduce signed dependencies: candidate inclusion reverses in the domain and preserves direction in the codomain, just as a function space is contravariant in its input and covariant in its output.</p>
+<h3 id="Build-semantic-sets-of-terminating-terms"><a href="#Build-semantic-sets-of-terminating-terms" class="headerlink" title="Build semantic sets of terminating terms"></a>Build semantic sets of terminating terms</h3><p>The proof follows the Tait–Girard reducibility tradition. A candidate is a carefully closed collection of strongly normalizing terms. Interpreting a type by such a collection lets one prove that every legal term of that type belongs to it.</p>
+<p>For function types, the interpretation tests application to suitable argument stacks. A stack is a finite list of successive arguments. The target property says that a strongly normalizing function, applied to a correctly typed stack of strongly normalizing arguments, remains strongly normalizing.</p>
+<p>If that property holds throughout the system, a smallest nonnormalizing application cannot exist. This converts the candidate construction into strong normalization for all legal expressions.</p>
+<p>The signed graph is processed component by component. When signs are consistent, an ordered fixed-point construction using Tarski’s theorem supplies candidates. A second construction handles products with at most one child in the current component.</p>
+<h3 id="Handle-circular-dependencies-with-observations"><a href="#Handle-circular-dependencies-with-observations" class="headerlink" title="Handle circular dependencies with observations"></a>Handle circular dependencies with observations</h3><p>The remaining components can involve negative cycles and more complicated mutual dependence. Defining the candidate for one type can require knowing the candidate for another that depends back on the first.</p>
+<p>The manuscript introduces observation tables indexed by stacks of normal arguments and auxiliary values. Some profiles are handled by well-founded recursion, others by alternating finite stages. A central claim is a bound uniform over all observations of a fixed typed expression, even though possible arguments and stack lengths are unbounded.</p>
+<p>Substitution stability is indispensable. In a dependent application, replacing a variable by an argument changes the output type. The interpretation must commute with that substitution closely enough to justify the application step.</p>
+<p>This construction works provided one specific graph configuration is absent. Establishing its absence is the second major part of the proof.</p>
+<h3 id="A-forbidden-configuration-would-violate-weak-normalization"><a href="#A-forbidden-configuration-would-violate-weak-normalization" class="headerlink" title="A forbidden configuration would violate weak normalization"></a>A forbidden configuration would violate weak normalization</h3><p>The paper shows that the problematic profile pattern would supply enough product rules for a small typed formula calculus. Inside that calculus it builds a guarded version of the diagonal argument associated with Hurkens’s simplification of Girard’s paradox.</p>
+<p>This is not an appeal to an untyped paradox. Every quantifier and data channel must be supported by product rules actually available in the profile graph. Explicit validity and extensionality conditions control which substitutions preserve the observations used by the diagonal.</p>
+<p>The auxiliary syntax labels expressions as proof mode or data mode. The resulting diagonal constructs a proof-mode term of a designated terminal formula. A separate syntactic descent argument says that no proof-mode term of that terminal can have a beta-normal erasure in the specified context.</p>
+<p>Erasure removes only these mode labels; it keeps every type annotation. Moreover, ordinary typed beta steps of an erased term lift to labelled steps. System-wide weak normalization would therefore normalize the constructed erased proof, producing exactly the normal erasure that the syntactic lemma forbids.</p>
+<p>This contradiction excludes the graph configuration. The remaining candidate construction then completes the strong-normalization argument.</p>
+<h2 id="7-Scope-limitations-and-open-questions"><a href="#7-Scope-limitations-and-open-questions" class="headerlink" title="7. Scope, limitations, and open questions"></a>7. Scope, limitations, and open questions</h2><p>The premise applies to all legal subjects and expected types in all valid contexts. A single weakly normalizing term, or a system whose closed programs normalize while some open types do not, does not meet the stated hypothesis.</p>
+<p>The theorem uses full beta reduction, including annotation positions. An argument about erased computational bodies alone would not establish this conclusion. The auxiliary erasure in the source is explicitly designed to retain those positions.</p>
+<p>No functionality assumption is imposed, but the system must still be a pure type system with the specified typing and conversion rules. Extensions by new computational mechanisms require their own analysis.</p>
+<p>The beta-eta version of the conjecture is not claimed. The result also supplies no bound on reduction lengths and no efficient strategy for finding normal forms. Strong normalization guarantees finiteness of every sequence, not a small running time.</p>
+<p>The proof’s paradox-based exclusion should be read as a conditional structural argument: if the forbidden profile configuration existed, it would produce a legal term contradicting the global weak-normalization premise. It does not claim that every nonfunctional or dependent type system is inconsistent.</p>
+<h2 id="8-Sources-and-further-reading"><a href="#8-Sources-and-further-reading" class="headerlink" title="8. Sources and further reading"></a>8. Sources and further reading</h2><p>Geuvers, <em>Logics and Type Systems</em>, doctoral thesis (1993), Conjecture 8.1.2, gives the system-wide conjecture. Barthe, Hatcliff and Sørensen, <em>Weak normalization implies strong normalization in a class of non-dependent pure type systems</em>, Theoretical Computer Science <strong>269</strong> (2001), 317–361, is a main translation-based predecessor.</p>
+<p>Roux and van Doorn, <em>The structural theory of pure type systems</em>, Lecture Notes in Computer Science <strong>8560</strong> (2014), 364–378, develops structural reductions. Mull, <em>An irrelevancy-eliminating translation of pure type systems</em>, LIPIcs <strong>269</strong> (2023), 7:1–7:21, and his 2023 thesis on tiered systems give more recent reductions and partial results.</p>
+<p>Girard, <em>Proofs and Types</em> (1989), provides background on reducibility candidates. Hurkens, <em>A simplification of Girard’s paradox</em>, Lecture Notes in Computer Science <strong>902</strong> (1995), 266–278, is the diagonal predecessor. Barthe and Coquand, <em>Remarks on the equational theory of non-normalizing pure type systems</em>, Journal of Functional Programming <strong>16</strong> (2006), 137–155, explains the annotation-erasure issue.</p>
+<h3 id="Source-manuscripts"><a href="#Source-manuscripts" class="headerlink" title="Source manuscripts"></a>Source manuscripts</h3><ul>
+<li><strong>M1.</strong> OpenAI, <a target="_blank" rel="noopener" href="https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/preprints/Weak-and-strong-normalization-in-pure-type-systems-September-25-2026/paper.pdf">Weak and strong normalization in pure type systems</a> (September 25, 2026).</li>
+</ul>
+<p>Sources consulted on 21 October 2026 at repository revision <a target="_blank" rel="noopener" href="https://github.com/openai/math/tree/1581d4cbdd69a0faf34b2089614fe2a814316a6a"><code>1581d4c</code></a>. <a href="/downloads/math-digest/family-245.bib">Download the manuscript citations</a>.</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/papers/">Papers</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="http://github.com/hsfzLZH1">Projects</a></li>
+        
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-The-question"><span class="toc-number">1.</span> <span class="toc-text">1. The question</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Background-and-essential-definitions"><span class="toc-number">2.</span> <span class="toc-text">2. Background and essential definitions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Beta-reduction"><span class="toc-number">2.1.</span> <span class="toc-text">Beta reduction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pure-type-systems"><span class="toc-number">2.2.</span> <span class="toc-text">Pure type systems</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Full-annotated-reduction"><span class="toc-number">2.3.</span> <span class="toc-text">Full annotated reduction</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Development-history-and-previous-partial-results"><span class="toc-number">3.</span> <span class="toc-text">3. Development history and previous partial results</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-What-the-new-manuscripts-claim"><span class="toc-number">4.</span> <span class="toc-text">4. What the new manuscripts claim</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Why-the-advance-matters"><span class="toc-number">5.</span> <span class="toc-text">5. Why the advance matters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-The-main-idea"><span class="toc-number">6.</span> <span class="toc-text">6. The main idea</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Track-every-possible-sort"><span class="toc-number">6.1.</span> <span class="toc-text">Track every possible sort</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Build-semantic-sets-of-terminating-terms"><span class="toc-number">6.2.</span> <span class="toc-text">Build semantic sets of terminating terms</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Handle-circular-dependencies-with-observations"><span class="toc-number">6.3.</span> <span class="toc-text">Handle circular dependencies with observations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-forbidden-configuration-would-violate-weak-normalization"><span class="toc-number">6.4.</span> <span class="toc-text">A forbidden configuration would violate weak normalization</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Scope-limitations-and-open-questions"><span class="toc-number">7.</span> <span class="toc-text">7. Scope, limitations, and open questions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Sources-and-further-reading"><span class="toc-number">8.</span> <span class="toc-text">8. Sources and further reading</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Source-manuscripts"><span class="toc-number">8.1.</span> <span class="toc-text">Source manuscripts</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://hsfzlzh1.github.io/math-digest/family-245/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hsfzlzh1.github.io/math-digest/family-245/&text=If every legal expression can normalize, every reduction strategy terminates"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://hsfzlzh1.github.io/math-digest/family-245/&title=If every legal expression can normalize, every reduction strategy terminates"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://hsfzlzh1.github.io/math-digest/family-245/&is_video=false&description=If every legal expression can normalize, every reduction strategy terminates"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=If every legal expression can normalize, every reduction strategy terminates&body=Check out this article: https://hsfzlzh1.github.io/math-digest/family-245/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://hsfzlzh1.github.io/math-digest/family-245/&title=If every legal expression can normalize, every reduction strategy terminates"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-245/&title=If every legal expression can normalize, every reduction strategy terminates"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-245/&title=If every legal expression can normalize, every reduction strategy terminates"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://hsfzlzh1.github.io/math-digest/family-245/&title=If every legal expression can normalize, every reduction strategy terminates"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://hsfzlzh1.github.io/math-digest/family-245/&name=If every legal expression can normalize, every reduction strategy terminates&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://hsfzlzh1.github.io/math-digest/family-245/&t=If every legal expression can normalize, every reduction strategy terminates"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2026
+    hsfzLZH1
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/papers/">Papers</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/hsfzLZH1">Projects</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?22c8630d664adbd9658b25d22a3fb1b5";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
